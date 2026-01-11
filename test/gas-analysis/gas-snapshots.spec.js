@@ -1,7 +1,8 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
+const isCoverage = !!process.env.SOLIDITY_COVERAGE || process.env.npm_lifecycle_event === "coverage";
 
-describe("Gas Snapshots", function () {
+(isCoverage ? describe.skip : describe)("Gas Snapshots", function () {
   let deployer, pool, lockPool, user;
   let dpToken, lockingToken, staking, sigWallet;
 
