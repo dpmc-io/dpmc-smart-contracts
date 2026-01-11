@@ -10,25 +10,25 @@ This document outlines trust assumptions, privileged operations, signer custody,
 
 ## Privileged Operations
 - STAKE (NFT Staking)
-  - Admin-only parameter updates: max pool, blacklists, signer address, forced unstake days, min stake, re-staking limit [nft-staking-smart-contract.sol:L1012-L1060]
-  - Pause/unpause: [nft-staking-smart-contract.sol:L960-L965]
-  - ForceStop (admin): [nft-staking-smart-contract.sol:L1329-L1358]
+-  - Admin-only parameter updates: max pool, blacklists, signer address, forced unstake days, min stake, re-staking limit [nft-staking-smart-contract.sol:L1012-L1060](../../contracts/nft-staking-smart-contract.sol#L1012-L1060)
+-  - Pause/unpause: [nft-staking-smart-contract.sol:L960-L965](../../contracts/nft-staking-smart-contract.sol#L960-L965)
+-  - ForceStop (admin): [nft-staking-smart-contract.sol:L1329-L1358](../../contracts/nft-staking-smart-contract.sol#L1329-L1358)
 - StableStaking (ERC20 Staking)
-  - Admin-only updates: thresholds, stakes caps, interest per tier, token addresses, pools, lock mode [stable-staking-smart-contract.sol:L847-L901], [stable-staking-smart-contract.sol:L860-L901]
-  - Pause/unpause: [stable-staking-smart-contract.sol:L41-L47 of tests]
-  - ForceStop (admin): [stable-staking-smart-contract.sol:L1410-L1451]
+-  - Admin-only updates: thresholds, stakes caps, interest per tier, token addresses, pools, lock mode [stable-staking-smart-contract.sol:L847-L901](../../contracts/stable-staking-smart-contract.sol#L847-L901), [stable-staking-smart-contract.sol:L860-L901](../../contracts/stable-staking-smart-contract.sol#L860-L901)
+-  - Pause/unpause: [stable-staking.spec.js:L41-L47](../../test/stable-staking.spec.js#L41-L47)
+-  - ForceStop (admin): [stable-staking-smart-contract.sol:L1410-L1451](../../contracts/stable-staking-smart-contract.sol#L1410-L1451)
 - REDEEM (NFT Redeem)
-  - Admin-only toggles and blacklists; owner updates of contract addresses [nft-redeem-smart-contract.sol:L56-L94]
+-  - Admin-only toggles and blacklists; owner updates of contract addresses [nft-redeem-smart-contract.sol:L56-L94](../../contracts/nft-redeem-smart-contract.sol#L56-L94)
 - DPToken (ERC20)
-  - Only owner can authorize staking contracts via setStakingContract; staking contracts update locked balances via onlyStakingContract [dp-token-smart-contract.sol:L839-L899]
+-  - Only owner can authorize staking contracts via setStakingContract; staking contracts update locked balances via onlyStakingContract [dp-token-smart-contract.sol:L839-L899](../../contracts/dp-token-smart-contract.sol#L839-L899)
 - GovernanceDAO
-  - Owner adds/removes admins; admins update token lock and staking contract references; admins set tier thresholds [governance-dao-smart-contract.sol:L344-L404]
+-  - Owner adds/removes admins; admins update token lock and staking contract references; admins set tier thresholds [governance-dao-smart-contract.sol:L344-L404](../../contracts/governance-dao-smart-contract.sol#L344-L404)
 
 ## Signer Custody & Validation
 - STAKE
-  - Signing scheme: keccak256(abi.encodePacked(...)); signer address managed via updateSignerAddress; validation via ECDSA.recover [nft-staking-smart-contract.sol:L1298-L1307], [nft-staking-smart-contract.sol:L1469-L1477]
+-  - Signing scheme: keccak256(abi.encodePacked(...)); signer address managed via updateSignerAddress; validation via ECDSA.recover [nft-staking-smart-contract.sol:L1298-L1307](../../contracts/nft-staking-smart-contract.sol#L1298-L1307), [nft-staking-smart-contract.sol:L1469-L1477](../../contracts/nft-staking-smart-contract.sol#L1469-L1477)
 - StableStaking
-  - Signing scheme includes address(this) and msg.sender, with usedSig replay protection; validation via ECDSA.recover [stable-staking-smart-contract.sol:L1339-L1356], [stable-staking-smart-contract.sol:L1528-L1568]
+-  - Signing scheme includes address(this) and msg.sender, with usedSig replay protection; validation via ECDSA.recover [stable-staking-smart-contract.sol:L1339-L1356](../../contracts/stable-staking-smart-contract.sol#L1339-L1356), [stable-staking-smart-contract.sol:L1528-L1568](../../contracts/stable-staking-smart-contract.sol#L1528-L1568)
 - Custody is off-chain; contracts provide verification and expiry checks but no on-chain key management.
 
 ## Known Non-Goals

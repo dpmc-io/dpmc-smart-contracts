@@ -221,96 +221,96 @@
 - pause(), unpause()
   - Purpose: Toggle paused state for staking operations.
   - Access: onlyAdmin.
-- Source: [nft-staking-smart-contract.sol:L960-L965](contracts/nft-staking-smart-contract.sol#L960-L965)
+- Source: [nft-staking-smart-contract.sol:L960-L965](../../contracts/nft-staking-smart-contract.sol#L960-L965)
 - onERC721Received(address operator, address from, uint256 tokenId, bytes data)
   - Purpose: Accept ERC721 tokens and capture receipt metadata.
   - Access: public override.
-- Source: [nft-staking-smart-contract.sol:L968-L982](contracts/nft-staking-smart-contract.sol#L968-L982)
+- Source: [nft-staking-smart-contract.sol:L968-L982](../../contracts/nft-staking-smart-contract.sol#L968-L982)
 - splitSignature(bytes sig), recoverSigner(bytes32 _hashedMessage, bytes sig)
   - Purpose: Signature parsing and signer recovery for gated actions.
   - Access: internal pure.
-- Source: [nft-staking-smart-contract.sol:L983-L1006](contracts/nft-staking-smart-contract.sol#L983-L1006)
+- Source: [nft-staking-smart-contract.sol:L983-L1006](../../contracts/nft-staking-smart-contract.sol#L983-L1006)
 - addOrRemoveAdmin(address _admin, bool _true)
   - Purpose: Manage admin set.
   - Access: onlyOwner.
   - Emits: AdminUpdated.
-- Source: [nft-staking-smart-contract.sol:L1017-L1021](contracts/nft-staking-smart-contract.sol#L1017-L1021)
+- Source: [nft-staking-smart-contract.sol:L1017-L1021](../../contracts/nft-staking-smart-contract.sol#L1017-L1021)
 - updateMaxStakingPool(uint256 newMaxStakingPool)
   - Purpose: Cap total staking pool; 0 = unlimited.
   - Access: onlyAdmin.
   - Emits: MaxStakingPoolUpdated.
-- Source: [nft-staking-smart-contract.sol:L1022-L1029](contracts/nft-staking-smart-contract.sol#L1022-L1029)
+- Source: [nft-staking-smart-contract.sol:L1022-L1029](../../contracts/nft-staking-smart-contract.sol#L1022-L1029)
 - updateBlacklistedAddress(address _user, bool _isBlacklisted)
   - Purpose: Manage user blacklist.
   - Access: onlyAdmin.
   - Emits: BlacklistedAddressUpdated.
-- Source: [nft-staking-smart-contract.sol:L1030-L1037](contracts/nft-staking-smart-contract.sol#L1030-L1037)
+- Source: [nft-staking-smart-contract.sol:L1030-L1037](../../contracts/nft-staking-smart-contract.sol#L1030-L1037)
 - updateBlacklistedTokenId(uint256 tokenId, bool _isBlacklisted)
   - Purpose: Manage NFT tokenId blacklist.
   - Access: onlyAdmin.
   - Emits: BlacklistedTokenIdUpdated.
-- Source: [nft-staking-smart-contract.sol:L1038-L1045](contracts/nft-staking-smart-contract.sol#L1038-L1045)
+- Source: [nft-staking-smart-contract.sol:L1038-L1045](../../contracts/nft-staking-smart-contract.sol#L1038-L1045)
 - updateForceUnstakeInDays(uint16 _days), updateMinStake(uint256 _mintStake), updateRestrictedReStaking(uint16 _restrictN)
   - Purpose: Configure forced-unstake window, minimum stake, and re-staking limits.
   - Access: onlyAdmin.
   - Emits: ForcedUnstakeInDaysUpdated / MinNFEUpdated / RestrictedReStakingUpdated.
-- Source: [nft-staking-smart-contract.sol:L1046-L1060](contracts/nft-staking-smart-contract.sol#L1046-L1060)
+- Source: [nft-staking-smart-contract.sol:L1046-L1060](../../contracts/nft-staking-smart-contract.sol#L1046-L1060)
 - updateSignerAddress(address _signerAddress), updateNFEaddress(address _nfeAddress), updateDPMCaddress(address _dpmcAddress), updateRewardAddress(address _rewardAddress)
   - Purpose: Update integration addresses.
   - Access: onlyAdmin.
   - Emits: SignerAddressUpdated / NFEAddressUpdated / DPMCAddressUpdated / RewardAddressUpdated.
-- Source: [nft-staking-smart-contract.sol:L1061-L1080](contracts/nft-staking-smart-contract.sol#L1061-L1080)
+- Source: [nft-staking-smart-contract.sol:L1061-L1080](../../contracts/nft-staking-smart-contract.sol#L1061-L1080)
 - updatePercentageUsed(bool _true), updateAprPercentage(uint8 _stakePeriod, uint256 _aprValue), updatePenaltyPercentage(uint8 _stakePeriod, uint256 _penaltyValue)
   - Purpose: Configure percentage usage and APR/PENALTY tables.
   - Access: onlyAdmin.
   - Emits: PercentageUsedUpdated / AprPercentageUpdated / PenaltyPercentageUpdated.
-- Source: [nft-staking-smart-contract.sol:L1081-L1115](contracts/nft-staking-smart-contract.sol#L1081-L1115)
+- Source: [nft-staking-smart-contract.sol:L1081-L1115](../../contracts/nft-staking-smart-contract.sol#L1081-L1115)
 - isRestricted(uint counter)
   - Purpose: Check re-staking restriction status.
   - Access: public view.
-- Source: [nft-staking-smart-contract.sol:L1116-L1119](contracts/nft-staking-smart-contract.sol#L1116-L1119)
+- Source: [nft-staking-smart-contract.sol:L1116-L1119](../../contracts/nft-staking-smart-contract.sol#L1116-L1119)
 - Math helpers (calculatePenaltyValue, calculatePenaltyBRV, GPV, AMP, SPP, BRV, calculateBasedRewardValue, convertUsdtToToken, getCertPriceInUsdt)
   - Purpose: Support reward and penalty computations using PPM math.
   - Access: public pure/view.
-- Source: [nft-staking-smart-contract.sol:L1120-L1188](contracts/nft-staking-smart-contract.sol#L1120-L1188)
+- Source: [nft-staking-smart-contract.sol:L1120-L1188](../../contracts/nft-staking-smart-contract.sol#L1120-L1188)
 - periodList(), periodInUnixTimestamp(uint256 _stakePeriod), forcedUnstakePeriodInUnixTimestamp(uint256 _stakeEndedAt)
   - Purpose: Period selection and timestamp calculations.
   - Access: public view/pure.
-- Source: [nft-staking-smart-contract.sol:L1195-L1226](contracts/nft-staking-smart-contract.sol#L1195-L1226)
+- Source: [nft-staking-smart-contract.sol:L1195-L1226](../../contracts/nft-staking-smart-contract.sol#L1195-L1226)
 - calculatePercentage(uint256 value, uint256 basisPoints)
   - Purpose: PPM percentage calculation utility.
   - Access: public view.
-- Source: [nft-staking-smart-contract.sol:L1237-L1244](contracts/nft-staking-smart-contract.sol#L1237-L1244)
+- Source: [nft-staking-smart-contract.sol:L1237-L1244](../../contracts/nft-staking-smart-contract.sol#L1237-L1244)
 - _calculateRewards(...)
   - Purpose: Compute low/high rewards from USDT BRV conversion.
   - Access: internal view.
-- Source: [nft-staking-smart-contract.sol:L1245-L1268](contracts/nft-staking-smart-contract.sol#L1245-L1268)
+- Source: [nft-staking-smart-contract.sol:L1245-L1268](../../contracts/nft-staking-smart-contract.sol#L1245-L1268)
 - staking(uint256 tokenId, uint8 stakePeriod, uint256 tokenRateUSDT, uint256 exp, bytes sig)
   - Purpose: Stake NFT into the pool with signature validation.
   - Access: public whenNotPaused nonReentrant.
   - Emits: Staking.
   - Requirements: pool cap, signature, APR period, blacklist checks, ownership, approval, min value.
-- Source: [nft-staking-smart-contract.sol:L1269-L1369](contracts/nft-staking-smart-contract.sol#L1269-L1369)
+- Source: [nft-staking-smart-contract.sol:L1269-L1369](../../contracts/nft-staking-smart-contract.sol#L1269-L1369)
 - forceStop(uint256 stakeId)
   - Purpose: Admin stops a stake early and returns NFT.
   - Access: external onlyAdmin nonReentrant.
   - Emits: ForceStop.
   - CEI: mark ended, update pool, transfer NFT, emit.
-- Source: [nft-staking-smart-contract.sol:L1371-L1394](contracts/nft-staking-smart-contract.sol#L1371-L1394)
+- Source: [nft-staking-smart-contract.sol:L1371-L1394](../../contracts/nft-staking-smart-contract.sol#L1371-L1394)
 - getTokenValue(uint256 tokenId)
   - Purpose: Read tokenValue from NFT contract.
   - Access: internal view.
-- Source: [nft-staking-smart-contract.sol:L1396-L1400](contracts/nft-staking-smart-contract.sol#L1396-L1400)
+- Source: [nft-staking-smart-contract.sol:L1396-L1400](../../contracts/nft-staking-smart-contract.sol#L1396-L1400)
 - createStake(...)
   - Purpose: Persist Stake struct fields.
   - Access: internal.
-- Source: [nft-staking-smart-contract.sol:L1401-L1424](contracts/nft-staking-smart-contract.sol#L1401-L1424)
+- Source: [nft-staking-smart-contract.sol:L1401-L1424](../../contracts/nft-staking-smart-contract.sol#L1401-L1424)
 - emitStakingEvent(...)
   - Purpose: Emit Staking with computed and window parameters.
   - Access: internal.
-- Source: [nft-staking-smart-contract.sol:L1463-L1446](contracts/nft-staking-smart-contract.sol#L1425-L1446)
+- Source: [nft-staking-smart-contract.sol:L1463-L1446](../../contracts/nft-staking-smart-contract.sol#L1425-L1446)
 - unStaking(uint256 stakeId, uint256 tokenRateUSDT, uint256 exp, bytes sig)
   - Purpose: Unstake with signature validation and reward computation.
   - Access: public nonReentrant.
   - Emits: UnStaking.
-- Source: [nft-staking-smart-contract.sol:L1463-L1550](contracts/nft-staking-smart-contract.sol#L1463-L1550)
+- Source: [nft-staking-smart-contract.sol:L1463-L1550](../../contracts/nft-staking-smart-contract.sol#L1463-L1550)

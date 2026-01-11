@@ -118,4 +118,4 @@
 - supportsInterface(bytes4 interfaceId)
   - Purpose: Advertise IERC721Receiver support.
   - Access: public view override.
-- Source: [nft-redeem-smart-contract.sol:L115-L116](contracts/nft-redeem-smart-contract.sol#L115-L116)
+- Source: [nft-redeem-smart-contract.sol:L115-L116](../../contracts/nft-redeem-smart-contract.sol#L115-L116)

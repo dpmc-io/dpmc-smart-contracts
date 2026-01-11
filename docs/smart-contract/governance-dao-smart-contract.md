@@ -191,7 +191,7 @@
   - Returns: none.
   - Access: onlyOwner.
   - Emits: AdminUpdated.
-  - Source: [governance-dao-smart-contract.sol:L213-L221](contracts/governance-dao-smart-contract.sol#L213-L221)
+  - Source: [governance-dao-smart-contract.sol:L213-L221](../../contracts/governance-dao-smart-contract.sol#L213-L221)
 - createSession()
   - Purpose: Start a new DAO voting session.
   - Parameters: none.
@@ -199,123 +199,123 @@
   - Access: onlyAdmin.
   - Emits: SessionCreated.
   - Requirements: previous session must be expired if present.
-  - Source: [governance-dao-smart-contract.sol:L221-L241](contracts/governance-dao-smart-contract.sol#L221-L241)
+  - Source: [governance-dao-smart-contract.sol:L221-L241](../../contracts/governance-dao-smart-contract.sol#L221-L241)
 - updateNoRulesVoteTier(Tier _newVoteTier), updateNoRulesProposalTier(Tier _newProposalTier)
   - Purpose: Configure baseline tiers for no-rules eligibility.
   - Access: onlyAdmin.
   - Emits: NoRulesVoteTierUpdated / NoRulesProposalTierUpdated.
-  - Source: [governance-dao-smart-contract.sol:L242-L258](contracts/governance-dao-smart-contract.sol#L242-L258)
+  - Source: [governance-dao-smart-contract.sol:L242-L258](../../contracts/governance-dao-smart-contract.sol#L242-L258)
 - updateRulesVoteConfig(bool _newValue), updateRulesProposalConfig(bool _newValue)
   - Purpose: Toggle rule-based eligibility paths.
   - Access: onlyAdmin.
   - Emits: RulesVoteConfigUpdated / RulesProposalConfigUpdated.
   - Requirements: new value differs from current.
-  - Source: [governance-dao-smart-contract.sol:L259-L277](contracts/governance-dao-smart-contract.sol#L259-L277)
+  - Source: [governance-dao-smart-contract.sol:L259-L277](../../contracts/governance-dao-smart-contract.sol#L259-L277)
 - withRulesVote(address _user)
   - Purpose: Check voting eligibility under rules mode.
   - Returns: bool.
-  - Source: [governance-dao-smart-contract.sol:L278-L292](contracts/governance-dao-smart-contract.sol#L278-L292)
+  - Source: [governance-dao-smart-contract.sol:L278-L292](../../contracts/governance-dao-smart-contract.sol#L278-L292)
 - withRulesProposal(address _user)
   - Purpose: Check proposal creation eligibility under rules mode.
   - Returns: bool.
-  - Source: [governance-dao-smart-contract.sol:L293-L306](contracts/governance-dao-smart-contract.sol#L293-L306)
+  - Source: [governance-dao-smart-contract.sol:L293-L306](../../contracts/governance-dao-smart-contract.sol#L293-L306)
 - noRulesPermission(address _user, Tier requiredTier)
   - Purpose: Permission check under no-rules mode using tiers.
   - Returns: bool.
-  - Source: [governance-dao-smart-contract.sol:L307-L325](contracts/governance-dao-smart-contract.sol#L307-L325)
+  - Source: [governance-dao-smart-contract.sol:L307-L325](../../contracts/governance-dao-smart-contract.sol#L307-L325)
 - checkEligibility(address _user, bool _isForProposal)
   - Purpose: Route eligibility based on rules toggles.
   - Returns: bool.
-  - Source: [governance-dao-smart-contract.sol:L326-L347](contracts/governance-dao-smart-contract.sol#L326-L347)
+  - Source: [governance-dao-smart-contract.sol:L326-L347](../../contracts/governance-dao-smart-contract.sol#L326-L347)
 - updateTokenLock(address _newTokenLock), updateUsdtStake(address _newUsdtStake), updateUsdcStake(address _newUsdcStake)
   - Purpose: Update external contract references.
   - Emits: ContractUpdated(contractType, oldAddress, newAddress).
-  - Source: [governance-dao-smart-contract.sol:L348-L364](contracts/governance-dao-smart-contract.sol#L348-L364)
+  - Source: [governance-dao-smart-contract.sol:L348-L364](../../contracts/governance-dao-smart-contract.sol#L348-L364)
 - updateTierThresholds(uint256 _vip, uint256 _gold, uint256 _silver, uint256 _bronze)
   - Purpose: Set tier thresholds in token units.
   - Emits: TierThresholdsUpdated(old/new thresholds).
   - Requirements: _vip ≥ _gold ≥ _silver ≥ _bronze.
-  - Source: [governance-dao-smart-contract.sol:L371-L410](contracts/governance-dao-smart-contract.sol#L371-L410)
+  - Source: [governance-dao-smart-contract.sol:L371-L410](../../contracts/governance-dao-smart-contract.sol#L371-L410)
 - getTier(address account)
   - Purpose: Determine user tier from tokenLock holdings.
   - Returns: Tier.
-  - Source: [governance-dao-smart-contract.sol:L411-L428](contracts/governance-dao-smart-contract.sol#L411-L428)
+  - Source: [governance-dao-smart-contract.sol:L411-L428](../../contracts/governance-dao-smart-contract.sol#L411-L428)
 - setMaxPercentage(uint256 _percent)
   - Purpose: Configure cap for CappedHoldingPercentage.
   - Emits: MaxPercentageUpdated(old, new).
   - Requirements: _percent ≤ PERCENTAGE_BASE.
-  - Source: [governance-dao-smart-contract.sol:L429-L437](contracts/governance-dao-smart-contract.sol#L429-L437)
+  - Source: [governance-dao-smart-contract.sol:L429-L437](../../contracts/governance-dao-smart-contract.sol#L429-L437)
 - updateMaxProposalsPerSession(uint256 _newLimit)
   - Purpose: Limit per-session submissions.
   - Emits: MaxProposalsPerSessionUpdated(old, new).
-  - Source: [governance-dao-smart-contract.sol:L438-L448](contracts/governance-dao-smart-contract.sol#L438-L448)
+  - Source: [governance-dao-smart-contract.sol:L438-L448](../../contracts/governance-dao-smart-contract.sol#L438-L448)
 - getTotalSupply()
   - Purpose: Fetch total supply from tokenLock.
   - Returns: uint256.
-  - Source: [governance-dao-smart-contract.sol:L449-L452](contracts/governance-dao-smart-contract.sol#L449-L452)
+  - Source: [governance-dao-smart-contract.sol:L449-L452](../../contracts/governance-dao-smart-contract.sol#L449-L452)
 - calculateVotePercentage(address account)
   - Purpose: Compute PPM holding percentage for account.
   - Returns: uint256.
-  - Source: [governance-dao-smart-contract.sol:L453-L462](contracts/governance-dao-smart-contract.sol#L453-L462)
+  - Source: [governance-dao-smart-contract.sol:L453-L462](../../contracts/governance-dao-smart-contract.sol#L453-L462)
 - cappedPercentage(address account)
   - Purpose: Min(calculateVotePercentage, MAX_CAPPED_PERCENTAGE).
   - Returns: uint256.
-  - Source: [governance-dao-smart-contract.sol:L463-L470](contracts/governance-dao-smart-contract.sol#L463-L470)
+  - Source: [governance-dao-smart-contract.sol:L463-L470](../../contracts/governance-dao-smart-contract.sol#L463-L470)
 - getStatusString(Status status)
   - Purpose: Status enum → string for event payloads.
   - Returns: string.
-  - Source: [governance-dao-smart-contract.sol:L471-L484](contracts/governance-dao-smart-contract.sol#L471-L484)
+  - Source: [governance-dao-smart-contract.sol:L471-L484](../../contracts/governance-dao-smart-contract.sol#L471-L484)
 - submitProposal(string _title, string _description, string[] _choices)
   - Purpose: Submit a proposal into the current session.
   - Access: external whenNotPaused.
   - Emits: ProposalSubmitted.
   - Requirements: eligible, no active proposal, session not at capacity, sender not previously created in session.
-  - Source: [governance-dao-smart-contract.sol:L485-L575](contracts/governance-dao-smart-contract.sol#L485-L575)
+  - Source: [governance-dao-smart-contract.sol:L485-L575](../../contracts/governance-dao-smart-contract.sol#L485-L575)
 - selectProposal(uint256 _proposalId, string _newTitle, string _newDescription, string[] _newChoices)
   - Purpose: Promote a proposal to Created and open voting.
   - Access: onlyAdmin.
   - Emits: ProposalCreated.
-  - Source: [governance-dao-smart-contract.sol:L581-L663](contracts/governance-dao-smart-contract.sol#L581-L663)
+  - Source: [governance-dao-smart-contract.sol:L581-L663](../../contracts/governance-dao-smart-contract.sol#L581-L663)
 - vote(uint256 _proposalId, uint256 _choiceIndex)
   - Purpose: Cast a vote with method-dependent weight.
   - Access: external whenNotPaused nonReentrant.
   - Emits: Voted.
-  - Source: [governance-dao-smart-contract.sol:L678-L750](contracts/governance-dao-smart-contract.sol#L678-L750)
+  - Source: [governance-dao-smart-contract.sol:L678-L750](../../contracts/governance-dao-smart-contract.sol#L678-L750)
 - cancelProposal(uint256 _proposalId)
   - Purpose: Cancel active Created proposal and roll session forward.
   - Access: onlyAdmin.
   - Emits: ProposalCancelled.
-  - Source: [governance-dao-smart-contract.sol:L751-L778](contracts/governance-dao-smart-contract.sol#L751-L778)
+  - Source: [governance-dao-smart-contract.sol:L751-L778](../../contracts/governance-dao-smart-contract.sol#L751-L778)
 - updateProposalStatus(uint256 _proposalId, Status _status)
   - Purpose: Finalize proposal outcome or apply status.
   - Access: onlyAdmin.
   - Emits: ProposalStatusUpdated.
-  - Source: [governance-dao-smart-contract.sol:L779-L798](contracts/governance-dao-smart-contract.sol#L779-L798)
+  - Source: [governance-dao-smart-contract.sol:L779-L798](../../contracts/governance-dao-smart-contract.sol#L779-L798)
 - updateVotingDuration(uint256 _days)
   - Purpose: Configure voting window duration.
   - Requirements: _days ≥ 1.
-  - Source: [governance-dao-smart-contract.sol:L799-L803](contracts/governance-dao-smart-contract.sol#L799-L803)
+  - Source: [governance-dao-smart-contract.sol:L799-L803](../../contracts/governance-dao-smart-contract.sol#L799-L803)
 - setVoteMethod(VoteMethod _method)
   - Purpose: Switch vote weighting scheme.
   - Requirements: cannot change while an active proposal is ongoing (endTime passed).
-  - Source: [governance-dao-smart-contract.sol:L804-L811](contracts/governance-dao-smart-contract.sol#L804-L811)
+  - Source: [governance-dao-smart-contract.sol:L804-L811](../../contracts/governance-dao-smart-contract.sol#L804-L811)
 - pauseDAO(bool _pause)
   - Purpose: Pause/unpause the DAO operations.
   - Emits: DAOStatusUpdated.
-  - Source: [governance-dao-smart-contract.sol:L812-L816](contracts/governance-dao-smart-contract.sol#L812-L816)
+  - Source: [governance-dao-smart-contract.sol:L812-L816](../../contracts/governance-dao-smart-contract.sol#L812-L816)
 - getProposalVote(uint256 _proposalId, uint256 _choiceIndex)
   - Purpose: Read aggregated votes for a choice.
   - Returns: uint256.
-  - Source: [governance-dao-smart-contract.sol:L817-L823](contracts/governance-dao-smart-contract.sol#L817-L823)
+  - Source: [governance-dao-smart-contract.sol:L817-L823](../../contracts/governance-dao-smart-contract.sol#L817-L823)
 - getFinalizedVotes(uint256 _proposalId)
   - Purpose: Read all finalized votes for proposal.
   - Returns: uint256[].
-  - Source: [governance-dao-smart-contract.sol:L824-L836](contracts/governance-dao-smart-contract.sol#L824-L836)
+  - Source: [governance-dao-smart-contract.sol:L824-L836](../../contracts/governance-dao-smart-contract.sol#L824-L836)
 - getWinningChoice(uint256 _proposalId)
   - Purpose: Determine winning choice by highest weight.
   - Returns: winningChoiceIndex, winningWeight.
-  - Source: [governance-dao-smart-contract.sol:L837-L860](contracts/governance-dao-smart-contract.sol#L837-L860)
+  - Source: [governance-dao-smart-contract.sol:L837-L860](../../contracts/governance-dao-smart-contract.sol#L837-L860)
 - getActiveProposal()
   - Purpose: Read current session’s active proposal.
   - Returns: Proposal memory.
-  - Source: [governance-dao-smart-contract.sol:L861-L869](contracts/governance-dao-smart-contract.sol#L861-L869)
+  - Source: [governance-dao-smart-contract.sol:L861-L869](../../contracts/governance-dao-smart-contract.sol#L861-L869)

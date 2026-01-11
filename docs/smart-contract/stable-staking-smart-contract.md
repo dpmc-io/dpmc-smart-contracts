@@ -242,133 +242,133 @@
   - Purpose: Manage admin set.
   - Access: onlyOwner.
   - Emits: AdminUpdated.
--  - Source: [stable-staking-smart-contract.sol:L750-L754](contracts/stable-staking-smart-contract.sol#L750-L754)
+-  - Source: [stable-staking-smart-contract.sol:L750-L754](../../contracts/stable-staking-smart-contract.sol#L750-L754)
 - pause(), unpause()
   - Purpose: Global pause control for staking operations.
   - Access: onlyAdmin.
   - Emits: ContractStateChanged.
--  - Source: [stable-staking-smart-contract.sol:L755-L764](contracts/stable-staking-smart-contract.sol#L755-L764)
+-  - Source: [stable-staking-smart-contract.sol:L755-L764](../../contracts/stable-staking-smart-contract.sol#L755-L764)
 - updateLockMode(bool _status)
   - Purpose: Require token lock for staking when true.
   - Access: onlyAdmin.
   - Emits: LockModeUpdated.
--  - Source: [stable-staking-smart-contract.sol:L765-L774](contracts/stable-staking-smart-contract.sol#L765-L774)
+-  - Source: [stable-staking-smart-contract.sol:L765-L774](../../contracts/stable-staking-smart-contract.sol#L765-L774)
 - updateThreshold(Tier tier, uint256 value)
   - Purpose: Set per-tier minimum locked thresholds.
   - Access: onlyAdmin.
   - Emits: ThresholdUpdated.
--  - Source: [stable-staking-smart-contract.sol:L799-L816](contracts/stable-staking-smart-contract.sol#L799-L816)
+-  - Source: [stable-staking-smart-contract.sol:L799-L816](../../contracts/stable-staking-smart-contract.sol#L799-L816)
 - updateStakingPoolAndReward(address _newAddress), updateLockingPool(address _newAddress)
   - Purpose: Update pools for staking and locking tokens.
   - Access: onlyValidAddress onlyAdmin.
   - Emits: stakingPoolAndRewardUpdated / lockedTokenUpdated.
--  - Source: [stable-staking-smart-contract.sol:L817-L830](contracts/stable-staking-smart-contract.sol#L817-L830)
+-  - Source: [stable-staking-smart-contract.sol:L817-L830](../../contracts/stable-staking-smart-contract.sol#L817-L830)
 - updateBondingPeriod(uint256 _newBondingPeriod), updateWithdrawalPeriod(uint256 _newWithdrawalPeriod)
   - Purpose: Configure bonding/withdrawal waiting periods.
   - Access: onlyAdmin.
   - Emits: BondingPeriodUpdated / WithdrawalPeriodUpdated.
--  - Source: [stable-staking-smart-contract.sol:L831-L846](contracts/stable-staking-smart-contract.sol#L831-L846)
+-  - Source: [stable-staking-smart-contract.sol:L831-L846](../../contracts/stable-staking-smart-contract.sol#L831-L846)
 - updatePersonalMinStake(uint256 _newMinStake), updateInstitutionalMinStake(uint256 _newMinStake)
   - Purpose: Set minimum stake per user type.
   - Access: onlyAdmin.
   - Emits: PersonalMinStakeUpdated / InstitutionalMinStakeUpdated.
--  - Source: [stable-staking-smart-contract.sol:L847-L862](contracts/stable-staking-smart-contract.sol#L847-L862)
+-  - Source: [stable-staking-smart-contract.sol:L847-L862](../../contracts/stable-staking-smart-contract.sol#L847-L862)
 - updateTotalMaxStakingPool(uint256 _newMax)
   - Purpose: Set global staking cap.
   - Access: onlyAdmin.
   - Emits: totalMaxStakingPoolUpdated.
--  - Source: [stable-staking-smart-contract.sol:L863-L869](contracts/stable-staking-smart-contract.sol#L863-L869)
+-  - Source: [stable-staking-smart-contract.sol:L863-L869](../../contracts/stable-staking-smart-contract.sol#L863-L869)
 - updateMaxStakeForTier(Tier _tier, uint256 _newMaxStake)
   - Purpose: Limit per-tier stake amount.
   - Access: onlyAdmin.
   - Emits: MaxStakeUpdated.
--  - Source: [stable-staking-smart-contract.sol:L870-L878](contracts/stable-staking-smart-contract.sol#L870-L878)
+-  - Source: [stable-staking-smart-contract.sol:L870-L878](../../contracts/stable-staking-smart-contract.sol#L870-L878)
 - updateAdditionalInterestForTier(Tier _tier, uint256 _newInterestPPM)
   - Purpose: Set additional interest for tier in PPM.
   - Access: onlyAdmin.
   - Emits: AdditionalInterestUpdated.
--  - Source: [stable-staking-smart-contract.sol:L879-L890](contracts/stable-staking-smart-contract.sol#L879-L890)
+-  - Source: [stable-staking-smart-contract.sol:L879-L890](../../contracts/stable-staking-smart-contract.sol#L879-L890)
 - updateStakingToken(address _newAddress), updateLockingToken(address _newAddress)
   - Purpose: Update token addresses; lockingToken update refreshes tokenLock reference.
   - Access: onlyAdmin.
   - Emits: StakingTokenUpdated / LockingTokenUpdated / ContractUpdated.
--  - Source: [stable-staking-smart-contract.sol:L891-L909](contracts/stable-staking-smart-contract.sol#L891-L909)
+-  - Source: [stable-staking-smart-contract.sol:L891-L909](../../contracts/stable-staking-smart-contract.sol#L891-L909)
 - getUserTier(uint256 _lockedAmount), getGlobalUserTier(address account, UserType userType)
   - Purpose: Determine tier from locked balances and global holdings.
   - Access: public view.
--  - Source: [stable-staking-smart-contract.sol:L910-L938](contracts/stable-staking-smart-contract.sol#L910-L938)
+-  - Source: [stable-staking-smart-contract.sol:L910-L938](../../contracts/stable-staking-smart-contract.sol#L910-L938)
 - getTierName(Tier tier), getAllTiers()
   - Purpose: Human-readable tier name and overview snapshot.
   - Access: internal pure / public view.
--  - Source: [stable-staking-smart-contract.sol:L939-L1000](contracts/stable-staking-smart-contract.sol#L939-L1000)
+-  - Source: [stable-staking-smart-contract.sol:L939-L1000](../../contracts/stable-staking-smart-contract.sol#L939-L1000)
 - calculateStakingInterest(uint256 totalDays, uint256 totalDaysInMonth, uint256 totalStakingAmount, uint256 interestRate)
   - Purpose: Pro-rate interest based on period days.
   - Access: public pure.
--  - Source: [stable-staking-smart-contract.sol:L1001-L1018](contracts/stable-staking-smart-contract.sol#L1001-L1018)
+-  - Source: [stable-staking-smart-contract.sol:L1001-L1018](../../contracts/stable-staking-smart-contract.sol#L1001-L1018)
 - calculateMonthlyStakingInterest(uint256 stakedAmount, uint256 interestRate)
   - Purpose: Annual interest in PPM divided by 12.
   - Access: internal pure.
--  - Source: [stable-staking-smart-contract.sol:L1019-L1031](contracts/stable-staking-smart-contract.sol#L1019-L1031)
+-  - Source: [stable-staking-smart-contract.sol:L1019-L1031](../../contracts/stable-staking-smart-contract.sol#L1019-L1031)
 - addStakingPeriod(uint256 _period, uint256 _interestRate, uint256 _limiter), updateStakingPeriod(uint256 _period, uint256 _interestRate, uint256 _limiter), disableStakingPeriod(uint256 _period), enableStakingPeriod(uint256 _period, uint256 _interestRate)
   - Purpose: Manage periods and interest APR configuration.
   - Access: public/onlyAdmin.
   - Emits: StakingPeriodEvent.
--  - Source: [stable-staking-smart-contract.sol:L1032-L1107](contracts/stable-staking-smart-contract.sol#L1032-L1107)
+-  - Source: [stable-staking-smart-contract.sol:L1032-L1107](../../contracts/stable-staking-smart-contract.sol#L1032-L1107)
 - periodList()
   - Purpose: Return arrays of period configuration and counters.
   - Access: public view.
--  - Source: [stable-staking-smart-contract.sol:L1108-L1160](contracts/stable-staking-smart-contract.sol#L1108-L1160)
+-  - Source: [stable-staking-smart-contract.sol:L1108-L1160](../../contracts/stable-staking-smart-contract.sol#L1108-L1160)
 - stake(UserType _userType, uint256 _period, uint256 _stakedAmount, bool _isTokenLocked, uint256 exp, bytes sig)
   - Purpose: Enter staking with signature validation.
   - Access: external whenNotPaused nonReentrant.
   - Emits: Staked.
--  - Source: [stable-staking-smart-contract.sol:L1302-L1339](contracts/stable-staking-smart-contract.sol#L1302-L1339)
+-  - Source: [stable-staking-smart-contract.sol:L1302-L1339](../../contracts/stable-staking-smart-contract.sol#L1302-L1339)
 - executeStaking(UserType _userType, uint256 _period, uint256 _stakedAmount, bool _isTokenLocked, uint256 exp, bytes sig)
   - Purpose: Validate conditions, compute StakeParams, transfer tokens, persist stake, update metrics.
   - Access: internal.
   - Emits: Staked.
--  - Source: [stable-staking-smart-contract.sol:L1161-L1238](contracts/stable-staking-smart-contract.sol#L1161-L1238)
+-  - Source: [stable-staking-smart-contract.sol:L1161-L1238](../../contracts/stable-staking-smart-contract.sol#L1161-L1238)
 - createStakeInfo(address user, StakeParams params)
   - Purpose: Allocate stake id and set StakeInfo.
   - Access: internal.
--  - Source: [stable-staking-smart-contract.sol:L1239-L1287](contracts/stable-staking-smart-contract.sol#L1239-L1287)
+-  - Source: [stable-staking-smart-contract.sol:L1239-L1287](../../contracts/stable-staking-smart-contract.sol#L1239-L1287)
 - updateTokenLockedInfo(address user, StakeParams params)
   - Purpose: Update tokenLocked[user] context.
   - Access: internal.
--  - Source: [stable-staking-smart-contract.sol:L1288-L1301](contracts/stable-staking-smart-contract.sol#L1288-L1301)
+-  - Source: [stable-staking-smart-contract.sol:L1288-L1301](../../contracts/stable-staking-smart-contract.sol#L1288-L1301)
 - getTierMinimumLocked(Tier tier)
   - Purpose: Read per-tier minimum locked thresholds.
   - Access: public view.
--  - Source: [stable-staking-smart-contract.sol:L1340-L1347](contracts/stable-staking-smart-contract.sol#L1340-L1347)
+-  - Source: [stable-staking-smart-contract.sol:L1340-L1347](../../contracts/stable-staking-smart-contract.sol#L1340-L1347)
 - validateStakeConditions(UserType _userType, uint256 _period, uint256 _stakedAmount, bool _isTokenLocked)
   - Purpose: Enforce conditions for staking, including lockMode rules.
   - Access: internal view.
-  - Source: [stable-staking-smart-contract.sol:L1348-L1403](contracts/stable-staking-smart-contract.sol#L1348-L1403)
+  - Source: [stable-staking-smart-contract.sol:L1348-L1403](../../contracts/stable-staking-smart-contract.sol#L1348-L1403)
 - handleTransfers(address staker, uint256 _stakedAmount, uint256 _lockedAmount)
   - Purpose: Move staked and locked amounts to respective pools.
   - Access: internal.
-  - Source: [stable-staking-smart-contract.sol:L1404-L1418](contracts/stable-staking-smart-contract.sol#L1404-L1418)
+  - Source: [stable-staking-smart-contract.sol:L1404-L1418](../../contracts/stable-staking-smart-contract.sol#L1404-L1418)
 - forceStop(uint256 _stakeId, address _staker)
   - Purpose: Admin closes stake early and updates metrics.
   - Access: external onlyAdmin nonReentrant.
   - Emits: ForceStop.
-  - Source: [stable-staking-smart-contract.sol:L1419-L1451](contracts/stable-staking-smart-contract.sol#L1419-L1451)
+  - Source: [stable-staking-smart-contract.sol:L1419-L1451](../../contracts/stable-staking-smart-contract.sol#L1419-L1451)
 - requestWithdrawPrincipal(uint256 _stakeId, uint256 exp, bytes sig)
   - Purpose: Request principal withdrawal; marks closed and updates metrics.
   - Access: external nonReentrant.
   - Emits: WithdrawPrincipalRequested.
-  - Source: [stable-staking-smart-contract.sol:L1460-L1523](contracts/stable-staking-smart-contract.sol#L1460-L1523)
+  - Source: [stable-staking-smart-contract.sol:L1460-L1523](../../contracts/stable-staking-smart-contract.sol#L1460-L1523)
 - withdrawPrincipal(uint256 _stakeId, uint256 exp, bytes sig)
   - Purpose: Withdraw principal after request; releases lock when applicable.
   - Access: external nonReentrant.
   - Emits: WithdrawnPrincipal.
-  - Source: [stable-staking-smart-contract.sol:L1524-L1577](contracts/stable-staking-smart-contract.sol#L1524-L1577)
+  - Source: [stable-staking-smart-contract.sol:L1524-L1577](../../contracts/stable-staking-smart-contract.sol#L1524-L1577)
 - withdrawInterest(uint256 _stakeId, uint256[] _months, uint256[] _interests, uint256 exp, bytes sig)
   - Purpose: Withdraw monthly interest with per-month validations.
   - Access: external nonReentrant.
   - Emits: InterestWithdrawn.
-  - Source: [stable-staking-smart-contract.sol:L1578-L1661](contracts/stable-staking-smart-contract.sol#L1578-L1661)
+  - Source: [stable-staking-smart-contract.sol:L1578-L1661](../../contracts/stable-staking-smart-contract.sol#L1578-L1661)
 - getUserStakeInfo(address _user, UserType userType)
   - Purpose: Summary view for UI of balances and allocations.
   - Access: public view.
-  - Source: [stable-staking-smart-contract.sol:L1662-L1700](contracts/stable-staking-smart-contract.sol#L1662-L1700)
+  - Source: [stable-staking-smart-contract.sol:L1662-L1700](../../contracts/stable-staking-smart-contract.sol#L1662-L1700)

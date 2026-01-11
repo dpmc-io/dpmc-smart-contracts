@@ -136,90 +136,90 @@
   - Purpose: Manage admin set.
   - Access: onlyOwner.
   - Emits: AdminUpdated.
-  - Source: [nft-minting-smart-contract.sol:L363-L367](contracts/nft-minting-smart-contract.sol#L363-L367)
+  - Source: [nft-minting-smart-contract.sol:L363-L367](../../contracts/nft-minting-smart-contract.sol#L363-L367)
 - updateMaxOwnership(uint256 newValue)
   - Purpose: Set max NFTs per wallet.
   - Access: onlyAdmin.
   - Emits: MintParameterUpdated("MaxOwnership", old, new).
-  - Source: [nft-minting-smart-contract.sol:L368-L373](contracts/nft-minting-smart-contract.sol#L368-L373)
+  - Source: [nft-minting-smart-contract.sol:L368-L373](../../contracts/nft-minting-smart-contract.sol#L368-L373)
 - pause(), unpause()
   - Purpose: Global pause control.
   - Access: onlyAdmin.
   - Emits: Paused / Unpaused.
-  - Source: [nft-minting-smart-contract.sol:L374-L385](contracts/nft-minting-smart-contract.sol#L374-L385)
+  - Source: [nft-minting-smart-contract.sol:L374-L385](../../contracts/nft-minting-smart-contract.sol#L374-L385)
 - updatePaymentToken(address newPaymentToken)
   - Purpose: Set ERC20 payment token.
   - Access: onlyAdmin.
   - Emits: PaymentTokenAddressUpdated(old, new).
-  - Source: [nft-minting-smart-contract.sol:L386-L391](contracts/nft-minting-smart-contract.sol#L386-L391)
+  - Source: [nft-minting-smart-contract.sol:L386-L391](../../contracts/nft-minting-smart-contract.sol#L386-L391)
 - updatePaymentPool(address newPaymentPool)
   - Purpose: Set payment destination pool.
   - Access: onlyAdmin.
   - Emits: PaymentPoolAddressUpdated(old, new).
-  - Source: [nft-minting-smart-contract.sol:L391-L395](contracts/nft-minting-smart-contract.sol#L391-L395)
+  - Source: [nft-minting-smart-contract.sol:L391-L395](../../contracts/nft-minting-smart-contract.sol#L391-L395)
 - updateRedeem(address newRedeem), updateStaking(address newStaking)
   - Purpose: Configure integrations.
   - Access: onlyAdmin.
   - Emits: RedeemUpdated / StakingUpdated.
-  - Source: [nft-minting-smart-contract.sol:L396-L405](contracts/nft-minting-smart-contract.sol#L396-L405)
+  - Source: [nft-minting-smart-contract.sol:L396-L405](../../contracts/nft-minting-smart-contract.sol#L396-L405)
 - updateMinMintAmount(uint256 newValue)
   - Purpose: Set minimum payment value.
   - Access: onlyAdmin.
   - Emits: MintParameterUpdated("MinMintAmount", old, new).
   - Requirements: maxToMint == 0 or newValue ≤ maxToMint.
-  - Source: [nft-minting-smart-contract.sol:L406-L415](contracts/nft-minting-smart-contract.sol#L406-L415)
+  - Source: [nft-minting-smart-contract.sol:L406-L415](../../contracts/nft-minting-smart-contract.sol#L406-L415)
 - updateMaxMintAmount(uint256 newValue)
   - Purpose: Set maximum payment value (0 = unlimited).
   - Access: onlyAdmin.
   - Emits: MintParameterUpdated("MaxMintAmount", old, new).
   - Requirements: newValue == 0 or newValue ≥ minToMint.
-  - Source: [nft-minting-smart-contract.sol:L416-L425](contracts/nft-minting-smart-contract.sol#L416-L425)
+  - Source: [nft-minting-smart-contract.sol:L416-L425](../../contracts/nft-minting-smart-contract.sol#L416-L425)
 - setAllowedAddress(address allowedAddress), updateAllowedAddress(address oldAddress, address newAddress), removeAllowedAddress(address addressToRemove)
   - Purpose: Manage transfer whitelist under restriction mode.
   - Access: onlyAdmin.
   - Emits: AllowedAddressUpdated.
-  - Source: [nft-minting-smart-contract.sol:L426-L451](contracts/nft-minting-smart-contract.sol#L426-L451)
+  - Source: [nft-minting-smart-contract.sol:L426-L451](../../contracts/nft-minting-smart-contract.sol#L426-L451)
 - updateTransferRestriction(bool isRestricted)
   - Purpose: Toggle global transfer restriction.
   - Access: onlyAdmin.
   - Emits: TransferRestrictionUpdated.
-  - Source: [nft-minting-smart-contract.sol:L451-L455](contracts/nft-minting-smart-contract.sol#L451-L455)
+  - Source: [nft-minting-smart-contract.sol:L451-L455](../../contracts/nft-minting-smart-contract.sol#L451-L455)
 - mint(uint256 value, address _address, uint256 _exp, bytes _sig)
   - Purpose: Mint certificate after signature and payment verification.
   - Parameters: value (ERC20 amount), _address, _exp (expiry), _sig (ECDSA).
   - Access: public whenNotPaused nonReentrant.
   - Emits: Transfer (ERC20), ERC721 Transfer.
   - Requirements: unused signature; valid signer; ownership cap; balance/allowance; min/max constraints.
-  - Source: [nft-minting-smart-contract.sol:L456-L500](contracts/nft-minting-smart-contract.sol#L456-L500)
+  - Source: [nft-minting-smart-contract.sol:L456-L500](../../contracts/nft-minting-smart-contract.sol#L456-L500)
 - transfer(address to, uint256 tokenId)
   - Purpose: Standard ERC721 transfer with restriction checks.
   - Access: public whenNotPaused whenNotRestricted nonReentrant.
-  - Source: [nft-minting-smart-contract.sol:L500-L506](contracts/nft-minting-smart-contract.sol#L500-L506)
+  - Source: [nft-minting-smart-contract.sol:L500-L506](../../contracts/nft-minting-smart-contract.sol#L500-L506)
 - transferFrom(address from, address to, uint256 tokenId)
   - Purpose: Delegated transfer respecting restriction execution source.
   - Access: public override whenNotPaused whenNotRestrictedExecutedFrom nonReentrant.
-  - Source: [nft-minting-smart-contract.sol:L507-L523](contracts/nft-minting-smart-contract.sol#L507-L523)
+  - Source: [nft-minting-smart-contract.sol:L507-L523](../../contracts/nft-minting-smart-contract.sol#L507-L523)
 - tokenURI(uint256 tokenId)
   - Purpose: Return on-chain JSON metadata with SVG image.
   - Access: public view override.
-  - Source: [nft-minting-smart-contract.sol:L524-L531](contracts/nft-minting-smart-contract.sol#L524-L531)
+  - Source: [nft-minting-smart-contract.sol:L524-L531](../../contracts/nft-minting-smart-contract.sol#L524-L531)
 - partOne(), partTwo(), partThree(uint256 tokenId), partFour(uint256 tokenId)
   - Purpose: Build SVG parts for image.
   - Access: internal (pure/view).
-  - Source: [nft-minting-smart-contract.sol:L532-L609](contracts/nft-minting-smart-contract.sol#L532-L609)
+  - Source: [nft-minting-smart-contract.sol:L532-L609](../../contracts/nft-minting-smart-contract.sol#L532-L609)
 - generateImage(uint256 tokenId)
   - Purpose: Concatenate SVG parts.
   - Access: internal view.
-  - Source: [nft-minting-smart-contract.sol:L610-L623](contracts/nft-minting-smart-contract.sol#L610-L623)
+  - Source: [nft-minting-smart-contract.sol:L610-L623](../../contracts/nft-minting-smart-contract.sol#L610-L623)
 - generateDateTime(uint256 tokenId)
   - Purpose: Format timestamp components.
   - Access: internal view.
-  - Source: [nft-minting-smart-contract.sol:L624-L735](contracts/nft-minting-smart-contract.sol#L624-L735)
+  - Source: [nft-minting-smart-contract.sol:L624-L735](../../contracts/nft-minting-smart-contract.sol#L624-L735)
 - generateAttributes(uint256 tokenId)
   - Purpose: Encode attributes as JSON string parts.
   - Access: internal view.
-  - Source: [nft-minting-smart-contract.sol:L721-L735](contracts/nft-minting-smart-contract.sol#L721-L735)
+  - Source: [nft-minting-smart-contract.sol:L721-L735](../../contracts/nft-minting-smart-contract.sol#L721-L735)
 - getSvg(uint256 tokenId)
   - Purpose: Build full metadata JSON and return Base64.
   - Access: public view.
-  - Source: [nft-minting-smart-contract.sol:L736-L767](contracts/nft-minting-smart-contract.sol#L736-L767)
+  - Source: [nft-minting-smart-contract.sol:L736-L767](../../contracts/nft-minting-smart-contract.sol#L736-L767)
