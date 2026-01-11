@@ -1,0 +1,85 @@
+STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550) uses arbitrary from in transferFrom: IERC20(erc20token).safeTransferFrom(REWARD,msg.sender,stakingReward) (contracts/nft-staking-smart-contract.sol#1531)
+STAKE.usedSig (contracts/nft-staking-smart-contract.sol#868) is never initialized. It is used in:
+	- STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369)
+	- STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550)
+STAKE.calculatePenaltyValue(uint256,uint8,uint256) (contracts/nft-staking-smart-contract.sol#1120-1128) performs a multiplication on the result of a division:
+Reentrancy in STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369):
+	STAKE.restrictedReStakingCounter (contracts/nft-staking-smart-contract.sol#873-874) can be used in cross function reentrancies:
+	- STAKE.restrictedReStakingCounter (contracts/nft-staking-smart-contract.sol#873-874)
+	STAKE.totalStakingPool (contracts/nft-staking-smart-contract.sol#862) can be used in cross function reentrancies:
+	- STAKE.totalStakingPool (contracts/nft-staking-smart-contract.sol#862)
+Reentrancy in STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550):
+	STAKE.stakes (contracts/nft-staking-smart-contract.sol#865) can be used in cross function reentrancies:
+	- STAKE.stakes (contracts/nft-staking-smart-contract.sol#865)
+STAKE.updateSignerAddress(address)._signerAddress (contracts/nft-staking-smart-contract.sol#1061) lacks a zero-check on :
+STAKE.updateNFEaddress(address)._nfeAddress (contracts/nft-staking-smart-contract.sol#1066) lacks a zero-check on :
+STAKE.updateDPMCaddress(address)._dpmcAddress (contracts/nft-staking-smart-contract.sol#1071) lacks a zero-check on :
+STAKE.updateRewardAddress(address)._rewardAddress (contracts/nft-staking-smart-contract.sol#1076) lacks a zero-check on :
+Reentrancy in STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369):
+Reentrancy in STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550):
+STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369) uses timestamp for comparisons
+STAKE.forceStop(uint256) (contracts/nft-staking-smart-contract.sol#1371-1394) uses timestamp for comparisons
+STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550) uses timestamp for comparisons
+STAKE.splitSignature(bytes) (contracts/nft-staking-smart-contract.sol#983-1000) uses assembly
+STAKE.periodList() (contracts/nft-staking-smart-contract.sol#1195-1212) uses assembly
+STAKE.calculateEstimatedBRV(uint256,uint256,uint256,uint8) (contracts/nft-staking-smart-contract.sol#1426-1433) is never used and should be removed
+STAKE.splitSignature(bytes) (contracts/nft-staking-smart-contract.sol#983-1000) is never used and should be removed
+Parameter STAKE.recoverSigner(bytes32,bytes)._hashedMessage (contracts/nft-staking-smart-contract.sol#1003) is not in mixedCase
+Parameter STAKE.addOrRemoveAdmin(address,bool)._admin (contracts/nft-staking-smart-contract.sol#1017) is not in mixedCase
+Parameter STAKE.addOrRemoveAdmin(address,bool)._true (contracts/nft-staking-smart-contract.sol#1017) is not in mixedCase
+Parameter STAKE.updateBlacklistedAddress(address,bool)._user (contracts/nft-staking-smart-contract.sol#1031) is not in mixedCase
+Parameter STAKE.updateBlacklistedAddress(address,bool)._isBlacklisted (contracts/nft-staking-smart-contract.sol#1032) is not in mixedCase
+Parameter STAKE.updateBlacklistedTokenId(uint256,bool)._isBlacklisted (contracts/nft-staking-smart-contract.sol#1040) is not in mixedCase
+Parameter STAKE.updateForceUnstakeInDays(uint16)._days (contracts/nft-staking-smart-contract.sol#1046) is not in mixedCase
+Parameter STAKE.updateMinStake(uint256)._mintStake (contracts/nft-staking-smart-contract.sol#1051) is not in mixedCase
+Parameter STAKE.updateRestrictedReStaking(uint16)._restrictN (contracts/nft-staking-smart-contract.sol#1056) is not in mixedCase
+Parameter STAKE.updateSignerAddress(address)._signerAddress (contracts/nft-staking-smart-contract.sol#1061) is not in mixedCase
+Parameter STAKE.updateNFEaddress(address)._nfeAddress (contracts/nft-staking-smart-contract.sol#1066) is not in mixedCase
+Parameter STAKE.updateDPMCaddress(address)._dpmcAddress (contracts/nft-staking-smart-contract.sol#1071) is not in mixedCase
+Parameter STAKE.updateRewardAddress(address)._rewardAddress (contracts/nft-staking-smart-contract.sol#1076) is not in mixedCase
+Parameter STAKE.updatePercentageUsed(bool)._true (contracts/nft-staking-smart-contract.sol#1081) is not in mixedCase
+Parameter STAKE.updateAprPercentage(uint8,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1087) is not in mixedCase
+Parameter STAKE.updateAprPercentage(uint8,uint256)._aprValue (contracts/nft-staking-smart-contract.sol#1088) is not in mixedCase
+Parameter STAKE.updatePenaltyPercentage(uint8,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1101) is not in mixedCase
+Parameter STAKE.updatePenaltyPercentage(uint8,uint256)._penaltyValue (contracts/nft-staking-smart-contract.sol#1102) is not in mixedCase
+Parameter STAKE.calculatePenaltyValue(uint256,uint8,uint256)._aprValue (contracts/nft-staking-smart-contract.sol#1121) is not in mixedCase
+Parameter STAKE.calculatePenaltyValue(uint256,uint8,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1122) is not in mixedCase
+Parameter STAKE.calculatePenaltyValue(uint256,uint8,uint256)._penaltyPercentage (contracts/nft-staking-smart-contract.sol#1123) is not in mixedCase
+Parameter STAKE.calculatePenaltyBRV(uint256,uint256)._usdtValue (contracts/nft-staking-smart-contract.sol#1131) is not in mixedCase
+Parameter STAKE.calculatePenaltyBRV(uint256,uint256)._penaltyPercentage (contracts/nft-staking-smart-contract.sol#1132) is not in mixedCase
+Function STAKE.GPV(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1138-1143) is not in mixedCase
+Parameter STAKE.GPV(uint256,uint256)._tokenRateUSDT (contracts/nft-staking-smart-contract.sol#1139) is not in mixedCase
+Parameter STAKE.GPV(uint256,uint256)._tokenValue (contracts/nft-staking-smart-contract.sol#1140) is not in mixedCase
+Function STAKE.AMP(uint256) (contracts/nft-staking-smart-contract.sol#1145-1148) is not in mixedCase
+Parameter STAKE.AMP(uint256)._aprPercentage (contracts/nft-staking-smart-contract.sol#1145) is not in mixedCase
+Function STAKE.SPP(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1150-1156) is not in mixedCase
+Parameter STAKE.SPP(uint256,uint256)._amp (contracts/nft-staking-smart-contract.sol#1151) is not in mixedCase
+Parameter STAKE.SPP(uint256,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1152) is not in mixedCase
+Function STAKE.BRV(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1158-1162) is not in mixedCase
+Parameter STAKE.BRV(uint256,uint256)._gpv (contracts/nft-staking-smart-contract.sol#1158) is not in mixedCase
+Parameter STAKE.BRV(uint256,uint256)._spp (contracts/nft-staking-smart-contract.sol#1158) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._apr (contracts/nft-staking-smart-contract.sol#1165) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._tokenRateUSDT (contracts/nft-staking-smart-contract.sol#1166) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._tokenValue (contracts/nft-staking-smart-contract.sol#1167) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1168) is not in mixedCase
+Parameter STAKE.periodInUnixTimestamp(uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1215) is not in mixedCase
+Parameter STAKE.forcedUnstakePeriodInUnixTimestamp(uint256)._stakeEndedAt (contracts/nft-staking-smart-contract.sol#1227) is not in mixedCase
+Variable STAKE.MIN_TOKEN_TO_STAKE (contracts/nft-staking-smart-contract.sol#852) is not in mixedCase
+Variable STAKE.PPM (contracts/nft-staking-smart-contract.sol#853) is not in mixedCase
+Variable STAKE.FORCED_UNSTAKE_IN_DAYS (contracts/nft-staking-smart-contract.sol#854) is not in mixedCase
+Variable STAKE.RESTRICTED_RE_STAKING (contracts/nft-staking-smart-contract.sol#855) is not in mixedCase
+Variable STAKE.SIGNER (contracts/nft-staking-smart-contract.sol#857) is not in mixedCase
+Variable STAKE.REWARD (contracts/nft-staking-smart-contract.sol#860) is not in mixedCase
+Variable STAKE.DEFAULT_PERCENTAGE_USED (contracts/nft-staking-smart-contract.sol#861) is not in mixedCase
+Variable STAKE.APR (contracts/nft-staking-smart-contract.sol#866) is not in mixedCase
+Variable STAKE.PENALTY (contracts/nft-staking-smart-contract.sol#867) is not in mixedCase
+Variable STAKE.STAKING_REWARD (contracts/nft-staking-smart-contract.sol#869) is not in mixedCase
+Variable STAKE.ESTIMATED_BRV (contracts/nft-staking-smart-contract.sol#875) is not in mixedCase
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+STAKE.BRV(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1158-1162) uses literals with too many digits:
+STAKE.PPM (contracts/nft-staking-smart-contract.sol#853) should be immutable 

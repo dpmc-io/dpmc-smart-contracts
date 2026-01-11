@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "BokkyPooBahsDateTimeLibrary",
+  "sourceName": "contracts/nft-minting-smart-contract.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea2646970667358221220bc9014b41461522a0672703f82461bf0c7f5efc62cf0fd5cb6ecf8d87529aced64736f6c63430008140033",
+  "deployedBytecode": "0x600080fdfea2646970667358221220bc9014b41461522a0672703f82461bf0c7f5efc62cf0fd5cb6ecf8d87529aced64736f6c63430008140033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

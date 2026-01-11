@@ -1,0 +1,14 @@
+REDEEM.redeem(uint256) (contracts/nft-redeem-smart-contract.sol#97-113) uses arbitrary from in transferFrom: IERC20(erc20token).safeTransferFrom(PAYOUT,msg.sender,tokenValue) (contracts/nft-redeem-smart-contract.sol#110)
+REDEEM.updateNFEaddress(address)._address (contracts/nft-redeem-smart-contract.sol#82) lacks a zero-check on :
+REDEEM.updateDPMCaddress(address)._address (contracts/nft-redeem-smart-contract.sol#87) lacks a zero-check on :
+REDEEM.updatePayoutAddress(address)._address (contracts/nft-redeem-smart-contract.sol#92) lacks a zero-check on :
+Parameter REDEEM.setIsRedeemable(bool)._isRedeemable (contracts/nft-redeem-smart-contract.sol#62) is not in mixedCase
+Parameter REDEEM.addOrRemoveAdmin(address,bool)._admin (contracts/nft-redeem-smart-contract.sol#67) is not in mixedCase
+Parameter REDEEM.addOrRemoveAdmin(address,bool)._isAdmin (contracts/nft-redeem-smart-contract.sol#67) is not in mixedCase
+Parameter REDEEM.updateBlacklistedAddress(address,bool)._user (contracts/nft-redeem-smart-contract.sol#72) is not in mixedCase
+Parameter REDEEM.updateBlacklistedAddress(address,bool)._isBlacklisted (contracts/nft-redeem-smart-contract.sol#72) is not in mixedCase
+Parameter REDEEM.updateBlacklistedTokenId(uint256,bool)._isBlacklisted (contracts/nft-redeem-smart-contract.sol#77) is not in mixedCase
+Parameter REDEEM.updateNFEaddress(address)._address (contracts/nft-redeem-smart-contract.sol#82) is not in mixedCase
+Parameter REDEEM.updateDPMCaddress(address)._address (contracts/nft-redeem-smart-contract.sol#87) is not in mixedCase
+Parameter REDEEM.updatePayoutAddress(address)._address (contracts/nft-redeem-smart-contract.sol#92) is not in mixedCase
+Variable REDEEM.PAYOUT (contracts/nft-redeem-smart-contract.sol#21) is not in mixedCase

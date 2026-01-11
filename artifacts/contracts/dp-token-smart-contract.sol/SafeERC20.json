@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "SafeERC20",
+  "sourceName": "contracts/dp-token-smart-contract.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea264697066735822122049407a79956ef17aea1449a63ca58a96f6ee442ab658632062ffc31ff281d66264736f6c63430008140033",
+  "deployedBytecode": "0x600080fdfea264697066735822122049407a79956ef17aea1449a63ca58a96f6ee442ab658632062ffc31ff281d66264736f6c63430008140033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

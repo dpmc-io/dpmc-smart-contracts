@@ -1,0 +1,22 @@
+DPToken.isContract(address) (contracts/dp-token-smart-contract.sol#973-983) uses assembly
+DPToken.isUniswapV4Router(address) (contracts/dp-token-smart-contract.sol#1006-1008) is never used and should be removed
+Parameter DPToken.isWhitelistedOrUniswapAdress(address)._address (contracts/dp-token-smart-contract.sol#986) is not in mixedCase
+Parameter DPToken.isUniswapRouter(address)._to (contracts/dp-token-smart-contract.sol#997) is not in mixedCase
+Parameter DPToken.isUniswapV4Manager(address)._address (contracts/dp-token-smart-contract.sol#1002) is not in mixedCase
+Parameter DPToken.isUniswapV4Router(address)._address (contracts/dp-token-smart-contract.sol#1006) is not in mixedCase
+Parameter DPToken.isUniswapV4(address)._address (contracts/dp-token-smart-contract.sol#1010) is not in mixedCase
+Parameter DPToken.calculateFee(uint256,uint24)._amount (contracts/dp-token-smart-contract.sol#1021) is not in mixedCase
+Parameter DPToken.transfer(address,uint256)._to (contracts/dp-token-smart-contract.sol#1030) is not in mixedCase
+Parameter DPToken.transfer(address,uint256)._value (contracts/dp-token-smart-contract.sol#1031) is not in mixedCase
+Parameter DPToken.transferFrom(address,address,uint256)._from (contracts/dp-token-smart-contract.sol#1084) is not in mixedCase
+Parameter DPToken.transferFrom(address,address,uint256)._to (contracts/dp-token-smart-contract.sol#1085) is not in mixedCase
+Parameter DPToken.transferFrom(address,address,uint256)._value (contracts/dp-token-smart-contract.sol#1086) is not in mixedCase
+Variable DPToken.V4PoolManager (contracts/dp-token-smart-contract.sol#775) is not in mixedCase
+Variable DPToken.V4Router (contracts/dp-token-smart-contract.sol#776) is not in mixedCase
+Variable DPToken.Permit2 (contracts/dp-token-smart-contract.sol#777) is not in mixedCase
+Variable DPToken.BUY_TAX (contracts/dp-token-smart-contract.sol#779) is not in mixedCase
+Variable DPToken.DEBUG (contracts/dp-token-smart-contract.sol#780) is not in mixedCase
+DPToken.constructor(address,address,uint24) (contracts/dp-token-smart-contract.sol#810-823) uses literals with too many digits:
+DPToken.constructor(address,address,uint24) (contracts/dp-token-smart-contract.sol#810-823) uses literals with too many digits:
+DPToken.updateBuyTaxPercentage(uint24) (contracts/dp-token-smart-contract.sol#886-895) uses literals with too many digits:
+DPToken.receiver (contracts/dp-token-smart-contract.sol#771) should be immutable 

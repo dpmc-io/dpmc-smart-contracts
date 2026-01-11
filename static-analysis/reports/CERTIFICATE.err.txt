@@ -1,0 +1,32 @@
+CERTIFICATE._name (contracts/nft-minting-smart-contract.sol#239) shadows:
+CERTIFICATE._symbol (contracts/nft-minting-smart-contract.sol#240) shadows:
+CERTIFICATE.mint(uint256,address,uint256,bytes) (contracts/nft-minting-smart-contract.sol#456-498) ignores return value by ERC20.transferFrom(msg.sender,paymentPool,value) (contracts/nft-minting-smart-contract.sol#487)
+Reentrancy in CERTIFICATE.mint(uint256,address,uint256,bytes) (contracts/nft-minting-smart-contract.sol#456-498):
+	CERTIFICATE.ownershipCount (contracts/nft-minting-smart-contract.sol#261) can be used in cross function reentrancies:
+	- CERTIFICATE.ownershipCount (contracts/nft-minting-smart-contract.sol#261)
+	- CERTIFICATE.transferFrom(address,address,uint256) (contracts/nft-minting-smart-contract.sol#507-522)
+	CERTIFICATE.tokenCounter (contracts/nft-minting-smart-contract.sol#238) can be used in cross function reentrancies:
+	- CERTIFICATE.tokenCounter (contracts/nft-minting-smart-contract.sol#238)
+	CERTIFICATE.usedSig (contracts/nft-minting-smart-contract.sol#262) can be used in cross function reentrancies:
+	- CERTIFICATE.usedSig (contracts/nft-minting-smart-contract.sol#262)
+CERTIFICATE.updatePaymentToken(address).newPaymentToken (contracts/nft-minting-smart-contract.sol#386) lacks a zero-check on :
+CERTIFICATE.updatePaymentPool(address).newPaymentPool (contracts/nft-minting-smart-contract.sol#391) lacks a zero-check on :
+CERTIFICATE.updateRedeem(address).newRedeem (contracts/nft-minting-smart-contract.sol#396) lacks a zero-check on :
+CERTIFICATE.updateStaking(address).newStaking (contracts/nft-minting-smart-contract.sol#401) lacks a zero-check on :
+Reentrancy in CERTIFICATE.mint(uint256,address,uint256,bytes) (contracts/nft-minting-smart-contract.sol#456-498):
+CERTIFICATE.generateDateTime(uint256) (contracts/nft-minting-smart-contract.sol#624-719) uses timestamp for comparisons
+CERTIFICATE.splitSignature(bytes) (contracts/nft-minting-smart-contract.sol#333-350) uses assembly
+Parameter CERTIFICATE.recoverSigner(bytes32,bytes)._hashedMessage (contracts/nft-minting-smart-contract.sol#353) is not in mixedCase
+Parameter CERTIFICATE.addOrRemoveAdmin(address,bool)._admin (contracts/nft-minting-smart-contract.sol#363) is not in mixedCase
+Parameter CERTIFICATE.addOrRemoveAdmin(address,bool)._true (contracts/nft-minting-smart-contract.sol#363) is not in mixedCase
+Parameter CERTIFICATE.mint(uint256,address,uint256,bytes)._address (contracts/nft-minting-smart-contract.sol#458) is not in mixedCase
+Parameter CERTIFICATE.mint(uint256,address,uint256,bytes)._exp (contracts/nft-minting-smart-contract.sol#459) is not in mixedCase
+Parameter CERTIFICATE.mint(uint256,address,uint256,bytes)._sig (contracts/nft-minting-smart-contract.sol#460) is not in mixedCase
+CERTIFICATE.constructor() (contracts/nft-minting-smart-contract.sol#318-326) uses literals with too many digits:
+CERTIFICATE.DEAD (contracts/nft-minting-smart-contract.sol#253) is never used in CERTIFICATE (contracts/nft-minting-smart-contract.sol#237-768)
+CERTIFICATE._name (contracts/nft-minting-smart-contract.sol#239) should be constant 
+CERTIFICATE._symbol (contracts/nft-minting-smart-contract.sol#240) should be constant 
+CERTIFICATE.description (contracts/nft-minting-smart-contract.sol#243) should be constant 
+CERTIFICATE.footer (contracts/nft-minting-smart-contract.sol#242) should be constant 
+CERTIFICATE.web (contracts/nft-minting-smart-contract.sol#241) should be constant 
+CERTIFICATE.signer (contracts/nft-minting-smart-contract.sol#246) should be immutable 

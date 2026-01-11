@@ -1,0 +1,109 @@
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses arbitrary from in transferFrom: lockingToken.safeTransferFrom(lockingPool,msg.sender,user.totalLocked) (contracts/stable-staking-smart-contract.sol#1561)
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses arbitrary from in transferFrom: stakingToken.safeTransferFrom(stakingPoolAndReward,msg.sender,staking.amounts.stakedAmount) (contracts/stable-staking-smart-contract.sol#1554)
+StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes) (contracts/stable-staking-smart-contract.sol#1578-1660) uses arbitrary from in transferFrom: stakingToken.safeTransferFrom(stakingPoolAndReward,msg.sender,totalInterest) (contracts/stable-staking-smart-contract.sol#1648)
+StableStaking.disableStakingPeriod(uint256) (contracts/stable-staking-smart-contract.sol#1074-1087) uses a dangerous strict equality:
+StableStaking.enableStakingPeriod(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1089-1106) uses a dangerous strict equality:
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses a dangerous strict equality:
+Reentrancy in StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237):
+	StableStaking.stakingPeriods (contracts/stable-staking-smart-contract.sol#696) can be used in cross function reentrancies:
+	- StableStaking.addStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1032-1051)
+	- StableStaking.disableStakingPeriod(uint256) (contracts/stable-staking-smart-contract.sol#1074-1087)
+	- StableStaking.enableStakingPeriod(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1089-1106)
+	- StableStaking.periodList() (contracts/stable-staking-smart-contract.sol#1108-1159)
+	- StableStaking.stakingPeriods (contracts/stable-staking-smart-contract.sol#696)
+	- StableStaking.updateStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1053-1072)
+	StableStaking.totalStakedAmount (contracts/stable-staking-smart-contract.sol#600) can be used in cross function reentrancies:
+	- StableStaking.totalStakedAmount (contracts/stable-staking-smart-contract.sol#600)
+	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
+	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
+	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
+	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
+	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
+	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
+Reentrancy in StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576):
+	StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700) can be used in cross function reentrancies:
+	- StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700)
+	StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700) can be used in cross function reentrancies:
+	- StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700)
+	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
+	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
+	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
+StableStaking.getAllTiers().tiersInfo (contracts/stable-staking-smart-contract.sol#956) is a local variable never initialized
+StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes).params (contracts/stable-staking-smart-contract.sol#1176) is a local variable never initialized
+StableStaking.updateLockMode(bool)._status (contracts/stable-staking-smart-contract.sol#765) shadows:
+StableStaking.constructor(address,address,address,address,address)._lockingPool (contracts/stable-staking-smart-contract.sol#706) lacks a zero-check on :
+Reentrancy in StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237):
+StableStaking.getUserTier(uint256) (contracts/stable-staking-smart-contract.sol#910-916) uses timestamp for comparisons
+StableStaking.addStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1032-1051) uses timestamp for comparisons
+StableStaking.updateStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1053-1072) uses timestamp for comparisons
+StableStaking.disableStakingPeriod(uint256) (contracts/stable-staking-smart-contract.sol#1074-1087) uses timestamp for comparisons
+StableStaking.enableStakingPeriod(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1089-1106) uses timestamp for comparisons
+StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237) uses timestamp for comparisons
+StableStaking.updateTokenLockedInfo(address,StableStaking.StakeParams) (contracts/stable-staking-smart-contract.sol#1288-1300) uses timestamp for comparisons
+StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1302-1338) uses timestamp for comparisons
+StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool) (contracts/stable-staking-smart-contract.sol#1348-1402) uses timestamp for comparisons
+StableStaking.handleTransfers(address,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1404-1417) uses timestamp for comparisons
+StableStaking.forceStop(uint256,address) (contracts/stable-staking-smart-contract.sol#1419-1458) uses timestamp for comparisons
+StableStaking.requestWithdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1460-1522) uses timestamp for comparisons
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses timestamp for comparisons
+StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes) (contracts/stable-staking-smart-contract.sol#1578-1660) uses timestamp for comparisons
+StableStaking.periodList() (contracts/stable-staking-smart-contract.sol#1108-1159) uses assembly
+Event StableStaking.totalMaxStakingPoolUpdated(uint256) (contracts/stable-staking-smart-contract.sol#655) is not in CapWords
+Event StableStaking.stakingPoolAndRewardUpdated(address) (contracts/stable-staking-smart-contract.sol#656) is not in CapWords
+Event StableStaking.lockedTokenUpdated(address) (contracts/stable-staking-smart-contract.sol#657) is not in CapWords
+Parameter StableStaking.addOrRemoveAdmin(address,bool)._admin (contracts/stable-staking-smart-contract.sol#750) is not in mixedCase
+Parameter StableStaking.addOrRemoveAdmin(address,bool)._true (contracts/stable-staking-smart-contract.sol#750) is not in mixedCase
+Parameter StableStaking.updateLockMode(bool)._status (contracts/stable-staking-smart-contract.sol#765) is not in mixedCase
+Parameter StableStaking.recoverSigner(bytes32,bytes)._hashedMessage (contracts/stable-staking-smart-contract.sol#793) is not in mixedCase
+Parameter StableStaking.updateStakingPoolAndReward(address)._newAddress (contracts/stable-staking-smart-contract.sol#818) is not in mixedCase
+Parameter StableStaking.updateLockingPool(address)._newAddress (contracts/stable-staking-smart-contract.sol#825) is not in mixedCase
+Parameter StableStaking.updateBondingPeriod(uint256)._newBondingPeriod (contracts/stable-staking-smart-contract.sol#831) is not in mixedCase
+Parameter StableStaking.updateWithdrawalPeriod(uint256)._newWithdrawalPeriod (contracts/stable-staking-smart-contract.sol#839) is not in mixedCase
+Parameter StableStaking.updatePersonalMinStake(uint256)._newMinStake (contracts/stable-staking-smart-contract.sol#847) is not in mixedCase
+Parameter StableStaking.updateInstitutionalMinStake(uint256)._newMinStake (contracts/stable-staking-smart-contract.sol#855) is not in mixedCase
+Parameter StableStaking.updateTotalMaxStakingPool(uint256)._newMax (contracts/stable-staking-smart-contract.sol#863) is not in mixedCase
+Parameter StableStaking.updateMaxStakeForTier(StableStaking.Tier,uint256)._tier (contracts/stable-staking-smart-contract.sol#871) is not in mixedCase
+Parameter StableStaking.updateMaxStakeForTier(StableStaking.Tier,uint256)._newMaxStake (contracts/stable-staking-smart-contract.sol#872) is not in mixedCase
+Parameter StableStaking.updateAdditionalInterestForTier(StableStaking.Tier,uint256)._tier (contracts/stable-staking-smart-contract.sol#880) is not in mixedCase
+Parameter StableStaking.updateAdditionalInterestForTier(StableStaking.Tier,uint256)._newInterestPPM (contracts/stable-staking-smart-contract.sol#881) is not in mixedCase
+Parameter StableStaking.updateStakingToken(address)._newAddress (contracts/stable-staking-smart-contract.sol#891) is not in mixedCase
+Parameter StableStaking.updateLockingToken(address)._newAddress (contracts/stable-staking-smart-contract.sol#900) is not in mixedCase
+Parameter StableStaking.getUserTier(uint256)._lockedAmount (contracts/stable-staking-smart-contract.sol#910) is not in mixedCase
+Parameter StableStaking.addStakingPeriod(uint256,uint256,uint256)._period (contracts/stable-staking-smart-contract.sol#1033) is not in mixedCase
+Parameter StableStaking.addStakingPeriod(uint256,uint256,uint256)._interestRate (contracts/stable-staking-smart-contract.sol#1034) is not in mixedCase
+Parameter StableStaking.addStakingPeriod(uint256,uint256,uint256)._limiter (contracts/stable-staking-smart-contract.sol#1035) is not in mixedCase
+Parameter StableStaking.updateStakingPeriod(uint256,uint256,uint256)._period (contracts/stable-staking-smart-contract.sol#1054) is not in mixedCase
+Parameter StableStaking.updateStakingPeriod(uint256,uint256,uint256)._interestRate (contracts/stable-staking-smart-contract.sol#1055) is not in mixedCase
+Parameter StableStaking.updateStakingPeriod(uint256,uint256,uint256)._limiter (contracts/stable-staking-smart-contract.sol#1056) is not in mixedCase
+Parameter StableStaking.disableStakingPeriod(uint256)._period (contracts/stable-staking-smart-contract.sol#1074) is not in mixedCase
+Parameter StableStaking.enableStakingPeriod(uint256,uint256)._period (contracts/stable-staking-smart-contract.sol#1090) is not in mixedCase
+Parameter StableStaking.enableStakingPeriod(uint256,uint256)._interestRate (contracts/stable-staking-smart-contract.sol#1091) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._userType (contracts/stable-staking-smart-contract.sol#1162) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._period (contracts/stable-staking-smart-contract.sol#1163) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._stakedAmount (contracts/stable-staking-smart-contract.sol#1164) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._isTokenLocked (contracts/stable-staking-smart-contract.sol#1165) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._userType (contracts/stable-staking-smart-contract.sol#1303) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._period (contracts/stable-staking-smart-contract.sol#1304) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._stakedAmount (contracts/stable-staking-smart-contract.sol#1305) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._isTokenLocked (contracts/stable-staking-smart-contract.sol#1306) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._userType (contracts/stable-staking-smart-contract.sol#1349) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._period (contracts/stable-staking-smart-contract.sol#1350) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._stakedAmount (contracts/stable-staking-smart-contract.sol#1351) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._isTokenLocked (contracts/stable-staking-smart-contract.sol#1352) is not in mixedCase
+Parameter StableStaking.handleTransfers(address,uint256,uint256)._stakedAmount (contracts/stable-staking-smart-contract.sol#1406) is not in mixedCase
+Parameter StableStaking.handleTransfers(address,uint256,uint256)._lockedAmount (contracts/stable-staking-smart-contract.sol#1407) is not in mixedCase
+Parameter StableStaking.forceStop(uint256,address)._stakeId (contracts/stable-staking-smart-contract.sol#1420) is not in mixedCase
+Parameter StableStaking.forceStop(uint256,address)._staker (contracts/stable-staking-smart-contract.sol#1421) is not in mixedCase
+Parameter StableStaking.requestWithdrawPrincipal(uint256,uint256,bytes)._stakeId (contracts/stable-staking-smart-contract.sol#1461) is not in mixedCase
+Parameter StableStaking.withdrawPrincipal(uint256,uint256,bytes)._stakeId (contracts/stable-staking-smart-contract.sol#1525) is not in mixedCase
+Parameter StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes)._stakeId (contracts/stable-staking-smart-contract.sol#1579) is not in mixedCase
+Parameter StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes)._months (contracts/stable-staking-smart-contract.sol#1580) is not in mixedCase
+Parameter StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes)._interests (contracts/stable-staking-smart-contract.sol#1581) is not in mixedCase
+Parameter StableStaking.getUserStakeInfo(address,StableStaking.UserType)._user (contracts/stable-staking-smart-contract.sol#1663) is not in mixedCase
+Variable StableStaking.MIN_VIP_THRESHOLD (contracts/stable-staking-smart-contract.sol#614) is not in mixedCase
+Variable StableStaking.MIN_GOLD_THRESHOLD (contracts/stable-staking-smart-contract.sol#615) is not in mixedCase
+Variable StableStaking.MIN_SILVER_THRESHOLD (contracts/stable-staking-smart-contract.sol#616) is not in mixedCase
+Variable StableStaking.MIN_BRONZE_THRESHOLD (contracts/stable-staking-smart-contract.sol#617) is not in mixedCase
+Variable StableStaking.MIN_NOTIER_THRESHOLD (contracts/stable-staking-smart-contract.sol#618) is not in mixedCase
+StableStaking.calculateMonthlyStakingInterest(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1019-1030) uses literals with too many digits:
+StableStaking.signer (contracts/stable-staking-smart-contract.sol#622) should be immutable 

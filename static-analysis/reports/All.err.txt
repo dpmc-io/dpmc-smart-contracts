@@ -1,0 +1,907 @@
+/Users/herdiansyah/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Problem deserializing hardhat configuration, using defaults: Expecting value: line 1 column 2 (char 1)
+
+REDEEM.redeem(uint256) (contracts/nft-redeem-smart-contract.sol#97-113) uses arbitrary from in transferFrom: IERC20(erc20token).safeTransferFrom(PAYOUT,msg.sender,tokenValue) (contracts/nft-redeem-smart-contract.sol#110)
+STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550) uses arbitrary from in transferFrom: IERC20(erc20token).safeTransferFrom(REWARD,msg.sender,stakingReward) (contracts/nft-staking-smart-contract.sol#1531)
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses arbitrary from in transferFrom: lockingToken.safeTransferFrom(lockingPool,msg.sender,user.totalLocked) (contracts/stable-staking-smart-contract.sol#1561)
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses arbitrary from in transferFrom: stakingToken.safeTransferFrom(stakingPoolAndReward,msg.sender,staking.amounts.stakedAmount) (contracts/stable-staking-smart-contract.sol#1554)
+StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes) (contracts/stable-staking-smart-contract.sol#1578-1660) uses arbitrary from in transferFrom: stakingToken.safeTransferFrom(stakingPoolAndReward,msg.sender,totalInterest) (contracts/stable-staking-smart-contract.sol#1648)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#arbitrary-from-in-transferfrom
+
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+
+CERTIFICATE._name (contracts/nft-minting-smart-contract.sol#239) shadows:
+	- ERC721._name (node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol#23)
+CERTIFICATE._symbol (contracts/nft-minting-smart-contract.sol#240) shadows:
+	- ERC721._symbol (node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol#26)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing
+
+CERTIFICATE.mint(uint256,address,uint256,bytes) (contracts/nft-minting-smart-contract.sol#456-498) ignores return value by ERC20.transferFrom(msg.sender,paymentPool,value) (contracts/nft-minting-smart-contract.sol#487)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+STAKE.usedSig (contracts/nft-staking-smart-contract.sol#868) is never initialized. It is used in:
+	- STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369)
+	- STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+Base64._encode(bytes,string,bool) (node_modules/@openzeppelin/contracts/utils/Base64.sol#35-118) performs a multiplication on the result of a division:
+	- resultLength = 4 * ((data.length + 2) / 3) (node_modules/@openzeppelin/contracts/utils/Base64.sol#55)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#257)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#261)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#262)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#263)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#264)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#265)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#266)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- low = low / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#245)
+	- result = low * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#272)
+Math.invMod(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#315-361) performs a multiplication on the result of a division:
+	- quotient = gcd / remainder (node_modules/@openzeppelin/contracts/utils/math/Math.sol#337)
+	- (gcd,remainder) = (remainder,gcd - remainder * quotient) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#339-346)
+BokkyPooBahsDateTimeLibrary._daysFromDate(uint256,uint256,uint256) (contracts/nft-minting-smart-contract.sol#37-58) performs a multiplication on the result of a division:
+	- __days = _day - 32075 + (1461 * (_year + 4800 + (_month - 14) / 12)) / 4 + (367 * (_month - 2 - ((_month - 14) / 12) * 12)) / 12 - (3 * ((_year + 4900 + (_month - 14) / 12) / 100)) / 4 - OFFSET19700101 (contracts/nft-minting-smart-contract.sol#47-55)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-minting-smart-contract.sol#77-96) performs a multiplication on the result of a division:
+	- N = (4 * L) / 146097 (contracts/nft-minting-smart-contract.sol#83)
+	- L = L - (146097 * N + 3) / 4 (contracts/nft-minting-smart-contract.sol#84)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-minting-smart-contract.sol#77-96) performs a multiplication on the result of a division:
+	- _year = (4000 * (L + 1)) / 1461001 (contracts/nft-minting-smart-contract.sol#85)
+	- L = L - (1461 * _year) / 4 + 31 (contracts/nft-minting-smart-contract.sol#86)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-minting-smart-contract.sol#77-96) performs a multiplication on the result of a division:
+	- _month = (80 * L) / 2447 (contracts/nft-minting-smart-contract.sol#87)
+	- _day = L - (2447 * _month) / 80 (contracts/nft-minting-smart-contract.sol#88)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-minting-smart-contract.sol#77-96) performs a multiplication on the result of a division:
+	- L = _month / 11 (contracts/nft-minting-smart-contract.sol#89)
+	- _month = _month + 2 - 12 * L (contracts/nft-minting-smart-contract.sol#90)
+BokkyPooBahsDateTimeLibrary._daysFromDate(uint256,uint256,uint256) (contracts/nft-staking-smart-contract.sol#389-410) performs a multiplication on the result of a division:
+	- __days = _day - 32075 + (1461 * (_year + 4800 + (_month - 14) / 12)) / 4 + (367 * (_month - 2 - ((_month - 14) / 12) * 12)) / 12 - (3 * ((_year + 4900 + (_month - 14) / 12) / 100)) / 4 - OFFSET19700101 (contracts/nft-staking-smart-contract.sol#399-407)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-staking-smart-contract.sol#429-448) performs a multiplication on the result of a division:
+	- N = (4 * L) / 146097 (contracts/nft-staking-smart-contract.sol#435)
+	- L = L - (146097 * N + 3) / 4 (contracts/nft-staking-smart-contract.sol#436)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-staking-smart-contract.sol#429-448) performs a multiplication on the result of a division:
+	- _year = (4000 * (L + 1)) / 1461001 (contracts/nft-staking-smart-contract.sol#437)
+	- L = L - (1461 * _year) / 4 + 31 (contracts/nft-staking-smart-contract.sol#438)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-staking-smart-contract.sol#429-448) performs a multiplication on the result of a division:
+	- _month = (80 * L) / 2447 (contracts/nft-staking-smart-contract.sol#439)
+	- _day = L - (2447 * _month) / 80 (contracts/nft-staking-smart-contract.sol#440)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/nft-staking-smart-contract.sol#429-448) performs a multiplication on the result of a division:
+	- L = _month / 11 (contracts/nft-staking-smart-contract.sol#441)
+	- _month = _month + 2 - 12 * L (contracts/nft-staking-smart-contract.sol#442)
+STAKE.calculatePenaltyValue(uint256,uint8,uint256) (contracts/nft-staking-smart-contract.sol#1120-1128) performs a multiplication on the result of a division:
+	- res = (_aprValue / 12) * (_stakePeriod - 1) (contracts/nft-staking-smart-contract.sol#1125)
+BokkyPooBahsDateTimeLibrary._daysFromDate(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#38-59) performs a multiplication on the result of a division:
+	- __days = _day - 32075 + (1461 * (_year + 4800 + (_month - 14) / 12)) / 4 + (367 * (_month - 2 - ((_month - 14) / 12) * 12)) / 12 - (3 * ((_year + 4900 + (_month - 14) / 12) / 100)) / 4 - OFFSET19700101 (contracts/stable-staking-smart-contract.sol#48-56)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/stable-staking-smart-contract.sol#78-97) performs a multiplication on the result of a division:
+	- N = (4 * L) / 146097 (contracts/stable-staking-smart-contract.sol#84)
+	- L = L - (146097 * N + 3) / 4 (contracts/stable-staking-smart-contract.sol#85)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/stable-staking-smart-contract.sol#78-97) performs a multiplication on the result of a division:
+	- _year = (4000 * (L + 1)) / 1461001 (contracts/stable-staking-smart-contract.sol#86)
+	- L = L - (1461 * _year) / 4 + 31 (contracts/stable-staking-smart-contract.sol#87)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/stable-staking-smart-contract.sol#78-97) performs a multiplication on the result of a division:
+	- _month = (80 * L) / 2447 (contracts/stable-staking-smart-contract.sol#88)
+	- _day = L - (2447 * _month) / 80 (contracts/stable-staking-smart-contract.sol#89)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256) (contracts/stable-staking-smart-contract.sol#78-97) performs a multiplication on the result of a division:
+	- L = _month / 11 (contracts/stable-staking-smart-contract.sol#90)
+	- _month = _month + 2 - 12 * L (contracts/stable-staking-smart-contract.sol#91)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+StableStaking.disableStakingPeriod(uint256) (contracts/stable-staking-smart-contract.sol#1074-1087) uses a dangerous strict equality:
+	- require(bool,string)(stakingPeriods[_period].period == _period,Period is not exist.) (contracts/stable-staking-smart-contract.sol#1075-1078)
+StableStaking.enableStakingPeriod(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1089-1106) uses a dangerous strict equality:
+	- require(bool,string)(stakingPeriods[_period].period == _period,Period is not exist.) (contracts/stable-staking-smart-contract.sol#1093-1096)
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses a dangerous strict equality:
+	- tokenLocked[msg.sender].stakeId == _stakeId (contracts/stable-staking-smart-contract.sol#1556)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Reentrancy in StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237):
+	External calls:
+	- updateUserLockedAmount(msg.sender,params.lockedTokenBalance,true) (contracts/stable-staking-smart-contract.sol#1203)
+		- tokenLock.updateLockedAmount(account,amount,increase) (contracts/stable-staking-smart-contract.sol#788)
+	State variables written after the call(s):
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- periodInfo.totalActiveStaking ++ (contracts/stable-staking-smart-contract.sol#1278)
+		- periodInfo.totalActiveStakeAmount += params.stakedAmount (contracts/stable-staking-smart-contract.sol#1279)
+		- periodInfo.totalLockedAmount += params.lockedTokenBalance (contracts/stable-staking-smart-contract.sol#1280)
+	StableStaking.stakingPeriods (contracts/stable-staking-smart-contract.sol#696) can be used in cross function reentrancies:
+	- StableStaking.addStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1032-1051)
+	- StableStaking.disableStakingPeriod(uint256) (contracts/stable-staking-smart-contract.sol#1074-1087)
+	- StableStaking.enableStakingPeriod(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1089-1106)
+	- StableStaking.periodList() (contracts/stable-staking-smart-contract.sol#1108-1159)
+	- StableStaking.stakingPeriods (contracts/stable-staking-smart-contract.sol#696)
+	- StableStaking.updateStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1053-1072)
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- totalStakedAmount += params.stakedAmount (contracts/stable-staking-smart-contract.sol#1267)
+	StableStaking.totalStakedAmount (contracts/stable-staking-smart-contract.sol#600) can be used in cross function reentrancies:
+	- StableStaking.totalStakedAmount (contracts/stable-staking-smart-contract.sol#600)
+	- users[msg.sender].totalLocked += params.lockedTokenBalance (contracts/stable-staking-smart-contract.sol#1211)
+	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
+	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
+	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- userInfo.userType = params.userType (contracts/stable-staking-smart-contract.sol#1272)
+		- userInfo.totalStaked += params.stakedAmount (contracts/stable-staking-smart-contract.sol#1273)
+		- userInfo.stakeCount ++ (contracts/stable-staking-smart-contract.sol#1274)
+	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
+	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
+	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
+Reentrancy in CERTIFICATE.mint(uint256,address,uint256,bytes) (contracts/nft-minting-smart-contract.sol#456-498):
+	External calls:
+	- ERC20.transferFrom(msg.sender,paymentPool,value) (contracts/nft-minting-smart-contract.sol#487)
+	- _safeMint(msg.sender,tokenCounter) (contracts/nft-minting-smart-contract.sol#488)
+		- ERC721Utils.checkOnERC721Received(_msgSender(),address(0),to,tokenId,data) (node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol#289)
+		- retval = IERC721Receiver(to).onERC721Received(operator,from,tokenId,data) (node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Utils.sol#33-47)
+	State variables written after the call(s):
+	- ownershipCount[msg.sender] ++ (contracts/nft-minting-smart-contract.sol#489)
+	CERTIFICATE.ownershipCount (contracts/nft-minting-smart-contract.sol#261) can be used in cross function reentrancies:
+	- CERTIFICATE.ownershipCount (contracts/nft-minting-smart-contract.sol#261)
+	- CERTIFICATE.transferFrom(address,address,uint256) (contracts/nft-minting-smart-contract.sol#507-522)
+	- tokenCounter ++ (contracts/nft-minting-smart-contract.sol#496)
+	CERTIFICATE.tokenCounter (contracts/nft-minting-smart-contract.sol#238) can be used in cross function reentrancies:
+	- CERTIFICATE.tokenCounter (contracts/nft-minting-smart-contract.sol#238)
+	- usedSig[_sig] = true (contracts/nft-minting-smart-contract.sol#497)
+	CERTIFICATE.usedSig (contracts/nft-minting-smart-contract.sol#262) can be used in cross function reentrancies:
+	- CERTIFICATE.usedSig (contracts/nft-minting-smart-contract.sol#262)
+Reentrancy in STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369):
+	External calls:
+	- IERC721(erc721token).safeTransferFrom(msg.sender,address(this),tokenId) (contracts/nft-staking-smart-contract.sol#1328-1332)
+	State variables written after the call(s):
+	- restrictedReStakingCounter[erc721token][tokenId] += 1 (contracts/nft-staking-smart-contract.sol#1354)
+	STAKE.restrictedReStakingCounter (contracts/nft-staking-smart-contract.sol#873-874) can be used in cross function reentrancies:
+	- STAKE.restrictedReStakingCounter (contracts/nft-staking-smart-contract.sol#873-874)
+	- totalStakingPool += tokenValue (contracts/nft-staking-smart-contract.sol#1356)
+	STAKE.totalStakingPool (contracts/nft-staking-smart-contract.sol#862) can be used in cross function reentrancies:
+	- STAKE.totalStakingPool (contracts/nft-staking-smart-contract.sol#862)
+Reentrancy in STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550):
+	External calls:
+	- IERC721(erc721token).safeTransferFrom(address(this),msg.sender,stake.tokenId) (contracts/nft-staking-smart-contract.sol#1526-1530)
+	State variables written after the call(s):
+	- stake.endedPrice = tokenRateUSDT (contracts/nft-staking-smart-contract.sol#1537)
+	STAKE.stakes (contracts/nft-staking-smart-contract.sol#865) can be used in cross function reentrancies:
+	- STAKE.stakes (contracts/nft-staking-smart-contract.sol#865)
+Reentrancy in StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576):
+	External calls:
+	- updateUserLockedAmount(msg.sender,user.totalLocked,false) (contracts/stable-staking-smart-contract.sol#1558)
+		- tokenLock.updateLockedAmount(account,amount,increase) (contracts/stable-staking-smart-contract.sol#788)
+	State variables written after the call(s):
+	- tokenLocked[msg.sender].stakeId = 0 (contracts/stable-staking-smart-contract.sol#1562)
+	StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700) can be used in cross function reentrancies:
+	- StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700)
+	- tokenLocked[msg.sender].lockedAmount = 0 (contracts/stable-staking-smart-contract.sol#1563)
+	StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700) can be used in cross function reentrancies:
+	- StableStaking.tokenLocked (contracts/stable-staking-smart-contract.sol#700)
+	- user.totalLocked = 0 (contracts/stable-staking-smart-contract.sol#1564)
+	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
+	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
+	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+StableStaking.getAllTiers().tiersInfo (contracts/stable-staking-smart-contract.sol#956) is a local variable never initialized
+WeiToString.numToFixedLengthStr(uint256,uint256).byteString (contracts/nft-minting-smart-contract.sol#191) is a local variable never initialized
+StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes).params (contracts/stable-staking-smart-contract.sol#1176) is a local variable never initialized
+GovernanceDAO.vote(uint256,uint256).calculatedWeight (contracts/governance-dao-smart-contract.sol#708) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ReentrancyAttacker.stakeOnce(uint256,uint8,uint256,uint256,bytes) (contracts/mocks/ReentrancyAttacker.sol#42-50) ignores return value by IStake(stake).staking(tokenId,stakePeriod,tokenRateUSDT,exp,sig) (contracts/mocks/ReentrancyAttacker.sol#49)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256).L (contracts/nft-minting-smart-contract.sol#82) is written in both
+	L = L - (1461 * _year) / 4 + 31 (contracts/nft-minting-smart-contract.sol#86)
+	L = _month / 11 (contracts/nft-minting-smart-contract.sol#89)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256).L (contracts/nft-staking-smart-contract.sol#434) is written in both
+	L = L - (1461 * _year) / 4 + 31 (contracts/nft-staking-smart-contract.sol#438)
+	L = _month / 11 (contracts/nft-staking-smart-contract.sol#441)
+BokkyPooBahsDateTimeLibrary.subMonths(uint256,uint256).year (contracts/nft-staking-smart-contract.sol#706) is written in both
+	(year,month,day) = _daysToDate(timestamp / SECONDS_PER_DAY) (contracts/nft-staking-smart-contract.sol#706-708)
+	year = yearMonth / 12 (contracts/nft-staking-smart-contract.sol#710)
+BokkyPooBahsDateTimeLibrary.subMonths(uint256,uint256).month (contracts/nft-staking-smart-contract.sol#706) is written in both
+	(year,month,day) = _daysToDate(timestamp / SECONDS_PER_DAY) (contracts/nft-staking-smart-contract.sol#706-708)
+	month = (yearMonth % 12) + 1 (contracts/nft-staking-smart-contract.sol#711)
+BokkyPooBahsDateTimeLibrary._daysToDate(uint256).L (contracts/stable-staking-smart-contract.sol#83) is written in both
+	L = L - (1461 * _year) / 4 + 31 (contracts/stable-staking-smart-contract.sol#87)
+	L = _month / 11 (contracts/stable-staking-smart-contract.sol#90)
+BokkyPooBahsDateTimeLibrary.subMonths(uint256,uint256).year (contracts/stable-staking-smart-contract.sol#355) is written in both
+	(year,month,day) = _daysToDate(timestamp / SECONDS_PER_DAY) (contracts/stable-staking-smart-contract.sol#355-357)
+	year = yearMonth / 12 (contracts/stable-staking-smart-contract.sol#359)
+BokkyPooBahsDateTimeLibrary.subMonths(uint256,uint256).month (contracts/stable-staking-smart-contract.sol#355) is written in both
+	(year,month,day) = _daysToDate(timestamp / SECONDS_PER_DAY) (contracts/stable-staking-smart-contract.sol#355-357)
+	month = (yearMonth % 12) + 1 (contracts/stable-staking-smart-contract.sol#360)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#write-after-write
+
+GovernanceDAO.updateProposalStatus(uint256,GovernanceDAO.Status)._status (contracts/governance-dao-smart-contract.sol#781) shadows:
+	- ReentrancyGuard._status (node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol#40) (state variable)
+StableStaking.updateLockMode(bool)._status (contracts/stable-staking-smart-contract.sol#765) shadows:
+	- ReentrancyGuard._status (node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol#40) (state variable)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ReentrancyAttacker.setup(address,address)._stake (contracts/mocks/ReentrancyAttacker.sol#33) lacks a zero-check on :
+		- stake = _stake (contracts/mocks/ReentrancyAttacker.sol#34)
+ReentrancyAttacker.setup(address,address)._nft (contracts/mocks/ReentrancyAttacker.sol#33) lacks a zero-check on :
+		- nft = _nft (contracts/mocks/ReentrancyAttacker.sol#35)
+CERTIFICATE.updatePaymentToken(address).newPaymentToken (contracts/nft-minting-smart-contract.sol#386) lacks a zero-check on :
+		- paymentToken = newPaymentToken (contracts/nft-minting-smart-contract.sol#388)
+CERTIFICATE.updatePaymentPool(address).newPaymentPool (contracts/nft-minting-smart-contract.sol#391) lacks a zero-check on :
+		- paymentPool = newPaymentPool (contracts/nft-minting-smart-contract.sol#393)
+CERTIFICATE.updateRedeem(address).newRedeem (contracts/nft-minting-smart-contract.sol#396) lacks a zero-check on :
+		- redeem = newRedeem (contracts/nft-minting-smart-contract.sol#398)
+CERTIFICATE.updateStaking(address).newStaking (contracts/nft-minting-smart-contract.sol#401) lacks a zero-check on :
+		- staking = newStaking (contracts/nft-minting-smart-contract.sol#403)
+REDEEM.updateNFEaddress(address)._address (contracts/nft-redeem-smart-contract.sol#82) lacks a zero-check on :
+		- erc721token = _address (contracts/nft-redeem-smart-contract.sol#83)
+REDEEM.updateDPMCaddress(address)._address (contracts/nft-redeem-smart-contract.sol#87) lacks a zero-check on :
+		- erc20token = _address (contracts/nft-redeem-smart-contract.sol#88)
+REDEEM.updatePayoutAddress(address)._address (contracts/nft-redeem-smart-contract.sol#92) lacks a zero-check on :
+		- PAYOUT = _address (contracts/nft-redeem-smart-contract.sol#93)
+STAKE.updateSignerAddress(address)._signerAddress (contracts/nft-staking-smart-contract.sol#1061) lacks a zero-check on :
+		- SIGNER = _signerAddress (contracts/nft-staking-smart-contract.sol#1062)
+STAKE.updateNFEaddress(address)._nfeAddress (contracts/nft-staking-smart-contract.sol#1066) lacks a zero-check on :
+		- erc721token = _nfeAddress (contracts/nft-staking-smart-contract.sol#1067)
+STAKE.updateDPMCaddress(address)._dpmcAddress (contracts/nft-staking-smart-contract.sol#1071) lacks a zero-check on :
+		- erc20token = _dpmcAddress (contracts/nft-staking-smart-contract.sol#1072)
+STAKE.updateRewardAddress(address)._rewardAddress (contracts/nft-staking-smart-contract.sol#1076) lacks a zero-check on :
+		- REWARD = _rewardAddress (contracts/nft-staking-smart-contract.sol#1077)
+StableStaking.constructor(address,address,address,address,address)._lockingPool (contracts/stable-staking-smart-contract.sol#706) lacks a zero-check on :
+		- lockingPool = _lockingPool (contracts/stable-staking-smart-contract.sol#717)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237):
+	External calls:
+	- updateUserLockedAmount(msg.sender,params.lockedTokenBalance,true) (contracts/stable-staking-smart-contract.sol#1203)
+		- tokenLock.updateLockedAmount(account,amount,increase) (contracts/stable-staking-smart-contract.sol#788)
+	State variables written after the call(s):
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- newStakeId = ++ currentStakeId (contracts/stable-staking-smart-contract.sol#1243)
+	- poolMetrics.totalLocked += params.lockedTokenBalance (contracts/stable-staking-smart-contract.sol#1212)
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- poolMetrics.totalPoolStaked += params.stakedAmount (contracts/stable-staking-smart-contract.sol#1282)
+		- poolMetrics.totalActiveStaked ++ (contracts/stable-staking-smart-contract.sol#1283)
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- newStakeInfo.amounts = StakeAmounts({stakedAmount:params.stakedAmount,lockedAmount:params.lockedTokenBalance}) (contracts/stable-staking-smart-contract.sol#1247-1250)
+		- newStakeInfo.meta = StakeMeta({stakingDate:block.timestamp,stakingEndDate:params.stakingEndDate,principalWithdrawRequestTimestamp:0,principalWithdrawTimestamp:0,stakingPeriod:params.period,baseInterest:params.baseInterest,additionalInterest:params.additionalInterest,monthlyInterest:params.monthlyInterest,interestLimiter:stakingPeriods[params.period].limiter,tier:params.userTier,tokenLocked:params.tokenLocked,closed:false,withdrawn:false}) (contracts/stable-staking-smart-contract.sol#1251-1265)
+	- updateTokenLockedInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1219)
+		- tokenLocked[user] = TokenLockedInfo({stakeId:params.newStakeId,lockedAmount:params.totalLocked}) (contracts/stable-staking-smart-contract.sol#1292-1299)
+		- tokenLocked[user] = TokenLockedInfo({stakeId:tokenLocked[user].stakeId,lockedAmount:params.totalLocked}) (contracts/stable-staking-smart-contract.sol#1292-1299)
+	- params.newStakeId = createStakeInfo(msg.sender,params) (contracts/stable-staking-smart-contract.sol#1215)
+		- totalActiveStaked ++ (contracts/stable-staking-smart-contract.sol#1268)
+	- totalLockedAmount += params.lockedTokenBalance (contracts/stable-staking-smart-contract.sol#1210)
+Reentrancy in CERTIFICATE.mint(uint256,address,uint256,bytes) (contracts/nft-minting-smart-contract.sol#456-498):
+	External calls:
+	- ERC20.transferFrom(msg.sender,paymentPool,value) (contracts/nft-minting-smart-contract.sol#487)
+	- _safeMint(msg.sender,tokenCounter) (contracts/nft-minting-smart-contract.sol#488)
+		- ERC721Utils.checkOnERC721Received(_msgSender(),address(0),to,tokenId,data) (node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol#289)
+		- retval = IERC721Receiver(to).onERC721Received(operator,from,tokenId,data) (node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Utils.sol#33-47)
+	State variables written after the call(s):
+	- _tokenExists[tokenCounter] = true (contracts/nft-minting-smart-contract.sol#492)
+	- timeStamp[tokenCounter] = block.timestamp (contracts/nft-minting-smart-contract.sol#495)
+	- tokenValue[tokenCounter] = value (contracts/nft-minting-smart-contract.sol#494)
+Reentrancy in STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369):
+	External calls:
+	- IERC721(erc721token).safeTransferFrom(msg.sender,address(this),tokenId) (contracts/nft-staking-smart-contract.sol#1328-1332)
+	State variables written after the call(s):
+	- createStake(stakeId,tokenId,stakePeriod,tokenRateUSDT,certUsdtValue,tokenValue) (contracts/nft-staking-smart-contract.sol#1345-1352)
+		- stake.stakedToken = erc721token (contracts/nft-staking-smart-contract.sol#1410)
+		- stake.staker = msg.sender (contracts/nft-staking-smart-contract.sol#1411)
+		- stake.tokenId = tokenId (contracts/nft-staking-smart-contract.sol#1412)
+		- stake.stakedValue = tokenValue (contracts/nft-staking-smart-contract.sol#1413)
+		- stake.stakedValueUSDT = certUsdtValue (contracts/nft-staking-smart-contract.sol#1414)
+		- stake.startedPrice = tokenRateUSDT (contracts/nft-staking-smart-contract.sol#1415)
+		- stake.startedAt = block.timestamp (contracts/nft-staking-smart-contract.sol#1416)
+		- stake.endedAt = periodInUnixTimestamp(stakePeriod) (contracts/nft-staking-smart-contract.sol#1417)
+		- stake.forcedUnstakeAt = forcedUnstakePeriodInUnixTimestamp(periodInUnixTimestamp(stakePeriod)) (contracts/nft-staking-smart-contract.sol#1418-1420)
+		- stake.stakePeriod = stakePeriod (contracts/nft-staking-smart-contract.sol#1421)
+		- stake.aprPercentage = APR[stakePeriod] (contracts/nft-staking-smart-contract.sol#1422)
+		- stake.penaltyPercentage = PENALTY[stakePeriod] (contracts/nft-staking-smart-contract.sol#1423)
+Reentrancy in STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550):
+	External calls:
+	- IERC721(erc721token).safeTransferFrom(address(this),msg.sender,stake.tokenId) (contracts/nft-staking-smart-contract.sol#1526-1530)
+	State variables written after the call(s):
+	- totalStakingPool -= tokenValue (contracts/nft-staking-smart-contract.sol#1538)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+GovernanceDAO.createSession() (contracts/governance-dao-smart-contract.sol#221-239) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp > sessions[sessionCounter].sessionTime,Previous session is still active) (contracts/governance-dao-smart-contract.sol#224-227)
+GovernanceDAO.submitProposal(string,string,string[]) (contracts/governance-dao-smart-contract.sol#485-579) uses timestamp for comparisons
+	Dangerous comparisons:
+	- sessions[currentSessionId].sessionTime > 0 && block.timestamp > sessions[currentSessionId].sessionTime (contracts/governance-dao-smart-contract.sol#512-513)
+	- require(bool,string)(sessions[currentSessionId].selectedProposalId == 0,There is already an active proposal) (contracts/governance-dao-smart-contract.sol#527-530)
+GovernanceDAO.selectProposal(uint256,string,string,string[]) (contracts/governance-dao-smart-contract.sol#581-662) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(proposals[referenceId].creator != address(0),Proposal is not exist) (contracts/governance-dao-smart-contract.sol#589-592)
+	- require(bool,string)(proposals[referenceId].status == Status.Submitted,Only submitted proposals can be selected) (contracts/governance-dao-smart-contract.sol#593-596)
+GovernanceDAO.vote(uint256,uint256) (contracts/governance-dao-smart-contract.sol#678-749) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp <= sessions[currentSessionId].sessionTime,Session has expired) (contracts/governance-dao-smart-contract.sol#693-696)
+	- require(bool,string)(block.timestamp <= proposal.endTime,Voting ended) (contracts/governance-dao-smart-contract.sol#698)
+	- require(bool,string)(proposal.status == Status.Created,Not active) (contracts/governance-dao-smart-contract.sol#699)
+	- require(bool,string)(_choiceIndex < proposal.choices.length,Invalid choice) (contracts/governance-dao-smart-contract.sol#700)
+GovernanceDAO.cancelProposal(uint256) (contracts/governance-dao-smart-contract.sol#751-777) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(proposal.status == Status.Created,Proposal is not active) (contracts/governance-dao-smart-contract.sol#753)
+GovernanceDAO.setVoteMethod(GovernanceDAO.VoteMethod) (contracts/governance-dao-smart-contract.sol#804-810) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp > proposals[activeProposalId].endTime,Cannot change vote method while an active proposal is ongoing) (contracts/governance-dao-smart-contract.sol#805-808)
+GovernanceDAO.getFinalizedVotes(uint256) (contracts/governance-dao-smart-contract.sol#824-835) uses timestamp for comparisons
+	Dangerous comparisons:
+	- i < choiceCount (contracts/governance-dao-smart-contract.sol#830)
+GovernanceDAO.getActiveProposal() (contracts/governance-dao-smart-contract.sol#861-870) uses timestamp for comparisons
+	Dangerous comparisons:
+	- sessions[currentSessionId].sessionTime > 0 && block.timestamp > sessions[currentSessionId].sessionTime (contracts/governance-dao-smart-contract.sol#864-865)
+CERTIFICATE.generateDateTime(uint256) (contracts/nft-minting-smart-contract.sol#624-719) uses timestamp for comparisons
+	Dangerous comparisons:
+	- BokkyPooBahsDateTimeLibrary.getMonth(timeStamp[tokenId]) < 10 (contracts/nft-minting-smart-contract.sol#627-640)
+	- BokkyPooBahsDateTimeLibrary.getDay(timeStamp[tokenId]) < 10 (contracts/nft-minting-smart-contract.sol#641-654)
+	- BokkyPooBahsDateTimeLibrary.getHour(timeStamp[tokenId]) < 10 (contracts/nft-minting-smart-contract.sol#655-668)
+	- BokkyPooBahsDateTimeLibrary.getMinute(timeStamp[tokenId]) < 10 (contracts/nft-minting-smart-contract.sol#669-684)
+	- BokkyPooBahsDateTimeLibrary.getSecond(timeStamp[tokenId]) < 10 (contracts/nft-minting-smart-contract.sol#685-700)
+STAKE.staking(uint256,uint8,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1269-1369) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(exp > block.timestamp,Signature is expired.) (contracts/nft-staking-smart-contract.sol#1282)
+STAKE.forceStop(uint256) (contracts/nft-staking-smart-contract.sol#1371-1394) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(stake.endedPrice == 0,US2: this stakeId has been unstaked.) (contracts/nft-staking-smart-contract.sol#1373)
+STAKE.unStaking(uint256,uint256,uint256,bytes) (contracts/nft-staking-smart-contract.sol#1463-1550) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(exp > block.timestamp,Signature is expired.) (contracts/nft-staking-smart-contract.sol#1469)
+	- require(bool,string)(stake.endedPrice == 0,US2: this stakeId has been unstaked.) (contracts/nft-staking-smart-contract.sol#1481)
+	- require(bool,string)(stake.staker == msg.sender,US3: msg sender should be the staker address.) (contracts/nft-staking-smart-contract.sol#1482-1485)
+	- require(bool,string)(block.timestamp >= stake.forcedUnstakeAt,US4: unable to unstake.) (contracts/nft-staking-smart-contract.sol#1486-1489)
+	- isForcedUnstaked = block.timestamp < stake.endedAt (contracts/nft-staking-smart-contract.sol#1491)
+StableStaking.getUserTier(uint256) (contracts/stable-staking-smart-contract.sol#910-916) uses timestamp for comparisons
+	Dangerous comparisons:
+	- _lockedAmount >= MIN_VIP_THRESHOLD (contracts/stable-staking-smart-contract.sol#911)
+	- _lockedAmount >= MIN_GOLD_THRESHOLD (contracts/stable-staking-smart-contract.sol#912)
+	- _lockedAmount >= MIN_SILVER_THRESHOLD (contracts/stable-staking-smart-contract.sol#913)
+	- _lockedAmount >= MIN_BRONZE_THRESHOLD (contracts/stable-staking-smart-contract.sol#914)
+StableStaking.addStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1032-1051) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(stakingPeriods[_period].period != _period,Period is exist.) (contracts/stable-staking-smart-contract.sol#1037)
+StableStaking.updateStakingPeriod(uint256,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1053-1072) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(stakingPeriods[_period].period == _period,Period is not exist.) (contracts/stable-staking-smart-contract.sol#1058-1061)
+StableStaking.disableStakingPeriod(uint256) (contracts/stable-staking-smart-contract.sol#1074-1087) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(stakingPeriods[_period].period == _period,Period is not exist.) (contracts/stable-staking-smart-contract.sol#1075-1078)
+StableStaking.enableStakingPeriod(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1089-1106) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(stakingPeriods[_period].period == _period,Period is not exist.) (contracts/stable-staking-smart-contract.sol#1093-1096)
+StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237) uses timestamp for comparisons
+	Dangerous comparisons:
+	- _userType == UserType.Personal && params.totalLocked >= MIN_VIP_THRESHOLD (contracts/stable-staking-smart-contract.sol#1189-1190)
+	- _isTokenLocked && params.lockedTokenBalance > 0 (contracts/stable-staking-smart-contract.sol#1218)
+StableStaking.updateTokenLockedInfo(address,StableStaking.StakeParams) (contracts/stable-staking-smart-contract.sol#1288-1300) uses timestamp for comparisons
+	Dangerous comparisons:
+	- (stakes[user][tokenLocked[user].stakeId].meta.stakingEndDate < params.stakingEndDate) (contracts/stable-staking-smart-contract.sol#1292-1299)
+StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1302-1338) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(exp >= block.timestamp,Signature expired.) (contracts/stable-staking-smart-contract.sol#1310)
+StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool) (contracts/stable-staking-smart-contract.sol#1348-1402) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(stakingPeriods[_period].exists,Invalid period) (contracts/stable-staking-smart-contract.sol#1354)
+	- require(bool,string)(totalStakedAmount + _stakedAmount <= totalMaxStakingPool,Pool exceeds max limit) (contracts/stable-staking-smart-contract.sol#1355-1358)
+	- require(bool,string)(users[msg.sender].stakeCount + 1 <= maxStakeAttempts,Stake count over max) (contracts/stable-staking-smart-contract.sol#1359-1362)
+	- require(bool,string)(users[msg.sender].totalStaked + _stakedAmount <= maxTierStake,Exceeds max stake) (contracts/stable-staking-smart-contract.sol#1377-1380)
+	- require(bool,string)(users[msg.sender].totalStaked + _stakedAmount <= maxTierStake,Exceeds max stake) (contracts/stable-staking-smart-contract.sol#1386-1389)
+StableStaking.handleTransfers(address,uint256,uint256) (contracts/stable-staking-smart-contract.sol#1404-1417) uses timestamp for comparisons
+	Dangerous comparisons:
+	- _lockedAmount > 0 (contracts/stable-staking-smart-contract.sol#1414)
+StableStaking.forceStop(uint256,address) (contracts/stable-staking-smart-contract.sol#1419-1458) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(staking.amounts.stakedAmount > 0,Staking not found) (contracts/stable-staking-smart-contract.sol#1425)
+	- require(bool,string)(! staking.meta.closed,Already closed) (contracts/stable-staking-smart-contract.sol#1426)
+StableStaking.requestWithdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1460-1522) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(exp >= block.timestamp,Signature expired) (contracts/stable-staking-smart-contract.sol#1465)
+	- require(bool,string)(staking.amounts.stakedAmount > 0,Staking not found.) (contracts/stable-staking-smart-contract.sol#1480)
+	- require(bool,string)(! staking.meta.closed,Already closed) (contracts/stable-staking-smart-contract.sol#1481)
+StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1524-1576) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(exp >= block.timestamp,Signature expired) (contracts/stable-staking-smart-contract.sol#1529)
+	- require(bool,string)(staking.amounts.stakedAmount > 0,Staking not found.) (contracts/stable-staking-smart-contract.sol#1544)
+	- require(bool,string)(staking.meta.closed,Staking not closed) (contracts/stable-staking-smart-contract.sol#1545)
+	- require(bool,string)(! staking.meta.withdrawn,Already claimed) (contracts/stable-staking-smart-contract.sol#1546)
+	- require(bool,string)(stakingToken.balanceOf(stakingPoolAndReward) >= staking.amounts.stakedAmount,Insufficient staking pool balance) (contracts/stable-staking-smart-contract.sol#1552)
+	- require(bool,string)(stakingToken.allowance(stakingPoolAndReward,address(this)) >= staking.amounts.stakedAmount,Insufficient staking pool allowance) (contracts/stable-staking-smart-contract.sol#1553)
+	- tokenLocked[msg.sender].stakeId == _stakeId (contracts/stable-staking-smart-contract.sol#1556)
+	- require(bool,string)(lockingToken.balanceOf(lockingPool) >= user.totalLocked,Insufficient locking pool balance) (contracts/stable-staking-smart-contract.sol#1559)
+	- require(bool,string)(lockingToken.allowance(lockingPool,address(this)) >= user.totalLocked,Insufficient locking pool allowance) (contracts/stable-staking-smart-contract.sol#1560)
+StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes) (contracts/stable-staking-smart-contract.sol#1578-1660) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(month <= BokkyPooBahsDateTimeLibrary.addMonths(staking.meta.stakingDate,staking.meta.interestLimiter),Month exceeds limiter) (contracts/stable-staking-smart-contract.sol#1617-1624)
+	- require(bool,string)(interest <= staking.meta.monthlyInterest,Interest too high) (contracts/stable-staking-smart-contract.sol#1627-1630)
+	- require(bool,string)(existingWithdrawal.amount == 0,Already withdrawn) (contracts/stable-staking-smart-contract.sol#1634)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SafeERC20._callOptionalReturn(IERC20,bytes) (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#173-191) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#176-186)
+SafeERC20._callOptionalReturnBool(IERC20,bytes) (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#201-211) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#205-209)
+ERC721Utils.checkOnERC721Received(address,address,address,uint256,bytes) (node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Utils.sol#25-49) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Utils.sol#43-45)
+Base64._encode(bytes,string,bool) (node_modules/@openzeppelin/contracts/utils/Base64.sol#35-118) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Base64.sol#59-115)
+Panic.panic(uint256) (node_modules/@openzeppelin/contracts/utils/Panic.sol#50-56) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Panic.sol#51-55)
+Strings.toString(uint256) (node_modules/@openzeppelin/contracts/utils/Strings.sol#45-63) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#50-52)
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#55-57)
+Strings.toChecksumHexString(address) (node_modules/@openzeppelin/contracts/utils/Strings.sol#111-129) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#116-118)
+Strings.escapeJSON(string) (node_modules/@openzeppelin/contracts/utils/Strings.sol#446-476) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#470-473)
+Strings._unsafeReadBytesOffset(bytes,uint256) (node_modules/@openzeppelin/contracts/utils/Strings.sol#484-489) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#486-488)
+ECDSA.tryRecover(bytes32,bytes) (node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol#56-75) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol#66-70)
+Math.add512(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#25-30) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#26-29)
+Math.mul512(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#37-46) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#41-45)
+Math.tryMul(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#73-84) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#76-80)
+Math.tryDiv(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#89-97) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#92-95)
+Math.tryMod(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#102-110) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#105-108)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#227-234)
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#240-249)
+Math.tryModExp(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#409-433) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#411-432)
+Math.tryModExp(bytes,bytes,bytes) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#449-471) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#461-470)
+Math.log2(uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#612-651) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#648-650)
+SafeCast.toUint(bool) (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#1157-1161) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#1158-1160)
+DPToken.isContract(address) (contracts/dp-token-smart-contract.sol#973-983) uses assembly
+	- INLINE ASM (contracts/dp-token-smart-contract.sol#979-981)
+CERTIFICATE.splitSignature(bytes) (contracts/nft-minting-smart-contract.sol#333-350) uses assembly
+	- INLINE ASM (contracts/nft-minting-smart-contract.sol#340-347)
+STAKE.splitSignature(bytes) (contracts/nft-staking-smart-contract.sol#983-1000) uses assembly
+	- INLINE ASM (contracts/nft-staking-smart-contract.sol#990-997)
+STAKE.periodList() (contracts/nft-staking-smart-contract.sol#1195-1212) uses assembly
+	- INLINE ASM (contracts/nft-staking-smart-contract.sol#1207-1209)
+StableStaking.periodList() (contracts/stable-staking-smart-contract.sol#1108-1159) uses assembly
+	- INLINE ASM (contracts/stable-staking-smart-contract.sol#1142-1149)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+6 different versions of Solidity are used:
+	- Version constraint ^0.8.20 is used by:
+		-^0.8.20 (node_modules/@openzeppelin/contracts/access/Ownable.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Utils.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/Base64.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/Context.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/Panic.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/Pausable.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/Strings.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#4)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#5)
+		-^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol#4)
+		-^0.8.20 (contracts/governance-dao-smart-contract.sol#2)
+		-^0.8.20 (contracts/mocks/MockLockToken.sol#2)
+		-^0.8.20 (contracts/mocks/MockNFE721.sol#2)
+		-^0.8.20 (contracts/mocks/ReentrancyAttacker.sol#2)
+	- Version constraint >=0.6.2 is used by:
+		->=0.6.2 (node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol#4)
+		->=0.6.2 (node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol#4)
+		->=0.6.2 (node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol#4)
+		->=0.6.2 (node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol#4)
+	- Version constraint >=0.4.16 is used by:
+		->=0.4.16 (node_modules/@openzeppelin/contracts/interfaces/IERC165.sol#4)
+		->=0.4.16 (node_modules/@openzeppelin/contracts/interfaces/IERC20.sol#4)
+		->=0.4.16 (node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol#4)
+		->=0.4.16 (node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol#4)
+	- Version constraint >=0.8.4 is used by:
+		->=0.8.4 (node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#3)
+	- Version constraint >=0.5.0 is used by:
+		->=0.5.0 (node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol#4)
+	- Version constraint 0.8.20 is used by:
+		-0.8.20 (contracts/dp-token-smart-contract.sol#2)
+		-0.8.20 (contracts/nft-minting-smart-contract.sol#2)
+		-0.8.20 (contracts/nft-redeem-smart-contract.sol#2)
+		-0.8.20 (contracts/nft-staking-smart-contract.sol#2)
+		-0.8.20 (contracts/stable-staking-smart-contract.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+
+Context._contextSuffixLength() (contracts/dp-token-smart-contract.sol#129-131) is never used and should be removed
+Context._msgData() (contracts/dp-token-smart-contract.sol#125-127) is never used and should be removed
+DPToken.isUniswapV4Router(address) (contracts/dp-token-smart-contract.sol#1006-1008) is never used and should be removed
+ERC20._burn(address,uint256) (contracts/dp-token-smart-contract.sol#523-528) is never used and should be removed
+ReentrancyGuard._reentrancyGuardEntered() (contracts/dp-token-smart-contract.sol#764-766) is never used and should be removed
+STAKE.calculateEstimatedBRV(uint256,uint256,uint256,uint8) (contracts/nft-staking-smart-contract.sol#1426-1433) is never used and should be removed
+STAKE.splitSignature(bytes) (contracts/nft-staking-smart-contract.sol#983-1000) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/access/Ownable.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Utils.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Base64.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Context.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Panic.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Pausable.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Strings.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol#4)
+	- ^0.8.20 (contracts/governance-dao-smart-contract.sol#2)
+	- ^0.8.20 (contracts/mocks/MockLockToken.sol#2)
+	- ^0.8.20 (contracts/mocks/MockNFE721.sol#2)
+	- ^0.8.20 (contracts/mocks/ReentrancyAttacker.sol#2)
+Version constraint >=0.6.2 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- MissingEscapingInFormatting
+	- ArraySliceDynamicallyEncodedBaseType
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow.
+It is used by:
+	- >=0.6.2 (node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol#4)
+	- >=0.6.2 (node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol#4)
+	- >=0.6.2 (node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol#4)
+	- >=0.6.2 (node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol#4)
+Version constraint >=0.4.16 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ExpExponentCleanup
+	- NestedArrayFunctionCallDecoder
+	- ZeroFunctionSelector.
+It is used by:
+	- >=0.4.16 (node_modules/@openzeppelin/contracts/interfaces/IERC165.sol#4)
+	- >=0.4.16 (node_modules/@openzeppelin/contracts/interfaces/IERC20.sol#4)
+	- >=0.4.16 (node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol#4)
+	- >=0.4.16 (node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol#4)
+Version constraint >=0.8.4 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- DataLocationChangeInInternalOverride
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- SignedImmutables.
+It is used by:
+	- >=0.8.4 (node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#3)
+Version constraint >=0.5.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor
+	- IncorrectEventSignatureInLibraries
+	- ABIEncoderV2PackedStorage.
+It is used by:
+	- >=0.5.0 (node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol#4)
+Version constraint 0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- 0.8.20 (contracts/dp-token-smart-contract.sol#2)
+	- 0.8.20 (contracts/nft-minting-smart-contract.sol#2)
+	- 0.8.20 (contracts/nft-redeem-smart-contract.sol#2)
+	- 0.8.20 (contracts/nft-staking-smart-contract.sol#2)
+	- 0.8.20 (contracts/stable-staking-smart-contract.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+MockLockToken (contracts/mocks/MockLockToken.sol#11-30) should inherit from IERC20 (contracts/governance-dao-smart-contract.sol#6-12)
+STAKE (contracts/nft-staking-smart-contract.sol#816-1555) should inherit from IStake (contracts/mocks/ReentrancyAttacker.sol#7-22)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+
+Parameter SafeERC20.safeTransfer(IERC20,address,uint256)._token (contracts/dp-token-smart-contract.sol#636) is not in mixedCase
+Parameter SafeERC20.safeTransfer(IERC20,address,uint256)._to (contracts/dp-token-smart-contract.sol#636) is not in mixedCase
+Parameter SafeERC20.safeTransfer(IERC20,address,uint256)._value (contracts/dp-token-smart-contract.sol#636) is not in mixedCase
+Parameter DPToken.isWhitelistedOrUniswapAdress(address)._address (contracts/dp-token-smart-contract.sol#986) is not in mixedCase
+Parameter DPToken.isUniswapRouter(address)._to (contracts/dp-token-smart-contract.sol#997) is not in mixedCase
+Parameter DPToken.isUniswapV4Manager(address)._address (contracts/dp-token-smart-contract.sol#1002) is not in mixedCase
+Parameter DPToken.isUniswapV4Router(address)._address (contracts/dp-token-smart-contract.sol#1006) is not in mixedCase
+Parameter DPToken.isUniswapV4(address)._address (contracts/dp-token-smart-contract.sol#1010) is not in mixedCase
+Parameter DPToken.calculateFee(uint256,uint24)._amount (contracts/dp-token-smart-contract.sol#1021) is not in mixedCase
+Parameter DPToken.transfer(address,uint256)._to (contracts/dp-token-smart-contract.sol#1030) is not in mixedCase
+Parameter DPToken.transfer(address,uint256)._value (contracts/dp-token-smart-contract.sol#1031) is not in mixedCase
+Parameter DPToken.transferFrom(address,address,uint256)._from (contracts/dp-token-smart-contract.sol#1084) is not in mixedCase
+Parameter DPToken.transferFrom(address,address,uint256)._to (contracts/dp-token-smart-contract.sol#1085) is not in mixedCase
+Parameter DPToken.transferFrom(address,address,uint256)._value (contracts/dp-token-smart-contract.sol#1086) is not in mixedCase
+Variable DPToken.V4PoolManager (contracts/dp-token-smart-contract.sol#775) is not in mixedCase
+Variable DPToken.V4Router (contracts/dp-token-smart-contract.sol#776) is not in mixedCase
+Variable DPToken.Permit2 (contracts/dp-token-smart-contract.sol#777) is not in mixedCase
+Variable DPToken.BUY_TAX (contracts/dp-token-smart-contract.sol#779) is not in mixedCase
+Variable DPToken.DEBUG (contracts/dp-token-smart-contract.sol#780) is not in mixedCase
+Parameter GovernanceDAO.addOrRemoveAdmin(address,bool)._admin (contracts/governance-dao-smart-contract.sol#214) is not in mixedCase
+Parameter GovernanceDAO.addOrRemoveAdmin(address,bool)._isAdminStatus (contracts/governance-dao-smart-contract.sol#215) is not in mixedCase
+Parameter GovernanceDAO.updateNoRulesVoteTier(GovernanceDAO.Tier)._newVoteTier (contracts/governance-dao-smart-contract.sol#242) is not in mixedCase
+Parameter GovernanceDAO.updateNoRulesProposalTier(GovernanceDAO.Tier)._newProposalTier (contracts/governance-dao-smart-contract.sol#251) is not in mixedCase
+Parameter GovernanceDAO.updateRulesVoteConfig(bool)._newValue (contracts/governance-dao-smart-contract.sol#259) is not in mixedCase
+Parameter GovernanceDAO.updateRulesProposalConfig(bool)._newValue (contracts/governance-dao-smart-contract.sol#268) is not in mixedCase
+Parameter GovernanceDAO.withRulesVote(address)._user (contracts/governance-dao-smart-contract.sol#278) is not in mixedCase
+Parameter GovernanceDAO.withRulesProposal(address)._user (contracts/governance-dao-smart-contract.sol#293) is not in mixedCase
+Parameter GovernanceDAO.noRulesPermission(address,GovernanceDAO.Tier)._user (contracts/governance-dao-smart-contract.sol#308) is not in mixedCase
+Parameter GovernanceDAO.checkEligibility(address,bool)._user (contracts/governance-dao-smart-contract.sol#327) is not in mixedCase
+Parameter GovernanceDAO.checkEligibility(address,bool)._isForProposal (contracts/governance-dao-smart-contract.sol#328) is not in mixedCase
+Parameter GovernanceDAO.updateTokenLock(address)._newTokenLock (contracts/governance-dao-smart-contract.sol#348) is not in mixedCase
+Parameter GovernanceDAO.updateUsdtStake(address)._newUsdtStake (contracts/governance-dao-smart-contract.sol#356) is not in mixedCase
+Parameter GovernanceDAO.updateUsdcStake(address)._newUsdcStake (contracts/governance-dao-smart-contract.sol#364) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._vip (contracts/governance-dao-smart-contract.sol#372) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._gold (contracts/governance-dao-smart-contract.sol#373) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._silver (contracts/governance-dao-smart-contract.sol#374) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._bronze (contracts/governance-dao-smart-contract.sol#375) is not in mixedCase
+Parameter GovernanceDAO.setMaxPercentage(uint256)._percent (contracts/governance-dao-smart-contract.sol#429) is not in mixedCase
+Parameter GovernanceDAO.updateMaxProposalsPerSession(uint256)._newLimit (contracts/governance-dao-smart-contract.sol#439) is not in mixedCase
+Parameter GovernanceDAO.submitProposal(string,string,string[])._title (contracts/governance-dao-smart-contract.sol#486) is not in mixedCase
+Parameter GovernanceDAO.submitProposal(string,string,string[])._description (contracts/governance-dao-smart-contract.sol#487) is not in mixedCase
+Parameter GovernanceDAO.submitProposal(string,string,string[])._choices (contracts/governance-dao-smart-contract.sol#488) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._proposalId (contracts/governance-dao-smart-contract.sol#582) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._newTitle (contracts/governance-dao-smart-contract.sol#583) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._newDescription (contracts/governance-dao-smart-contract.sol#584) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._newChoices (contracts/governance-dao-smart-contract.sol#585) is not in mixedCase
+Parameter GovernanceDAO.vote(uint256,uint256)._proposalId (contracts/governance-dao-smart-contract.sol#679) is not in mixedCase
+Parameter GovernanceDAO.vote(uint256,uint256)._choiceIndex (contracts/governance-dao-smart-contract.sol#680) is not in mixedCase
+Parameter GovernanceDAO.cancelProposal(uint256)._proposalId (contracts/governance-dao-smart-contract.sol#751) is not in mixedCase
+Parameter GovernanceDAO.updateProposalStatus(uint256,GovernanceDAO.Status)._proposalId (contracts/governance-dao-smart-contract.sol#780) is not in mixedCase
+Parameter GovernanceDAO.updateProposalStatus(uint256,GovernanceDAO.Status)._status (contracts/governance-dao-smart-contract.sol#781) is not in mixedCase
+Parameter GovernanceDAO.updateVotingDuration(uint256)._days (contracts/governance-dao-smart-contract.sol#799) is not in mixedCase
+Parameter GovernanceDAO.setVoteMethod(GovernanceDAO.VoteMethod)._method (contracts/governance-dao-smart-contract.sol#804) is not in mixedCase
+Parameter GovernanceDAO.pauseDAO(bool)._pause (contracts/governance-dao-smart-contract.sol#812) is not in mixedCase
+Parameter GovernanceDAO.getProposalVote(uint256,uint256)._proposalId (contracts/governance-dao-smart-contract.sol#818) is not in mixedCase
+Parameter GovernanceDAO.getProposalVote(uint256,uint256)._choiceIndex (contracts/governance-dao-smart-contract.sol#819) is not in mixedCase
+Parameter GovernanceDAO.getFinalizedVotes(uint256)._proposalId (contracts/governance-dao-smart-contract.sol#825) is not in mixedCase
+Parameter GovernanceDAO.getWinningChoice(uint256)._proposalId (contracts/governance-dao-smart-contract.sol#838) is not in mixedCase
+Variable GovernanceDAO.MIN_VIP_THRESHOLD (contracts/governance-dao-smart-contract.sol#83) is not in mixedCase
+Variable GovernanceDAO.MIN_GOLD_THRESHOLD (contracts/governance-dao-smart-contract.sol#84) is not in mixedCase
+Variable GovernanceDAO.MIN_SILVER_THRESHOLD (contracts/governance-dao-smart-contract.sol#85) is not in mixedCase
+Variable GovernanceDAO.MIN_BRONZE_THRESHOLD (contracts/governance-dao-smart-contract.sol#86) is not in mixedCase
+Variable GovernanceDAO.MAX_CAPPED_PERCENTAGE (contracts/governance-dao-smart-contract.sol#98) is not in mixedCase
+Variable GovernanceDAO.MAX_PROPOSALS_PER_SESSION (contracts/governance-dao-smart-contract.sol#99) is not in mixedCase
+Variable GovernanceDAO.VOTING_DURATION (contracts/governance-dao-smart-contract.sol#101) is not in mixedCase
+Variable MockNFE721._tokenValue (contracts/mocks/MockNFE721.sol#11) is not in mixedCase
+Parameter ReentrancyAttacker.setup(address,address)._stake (contracts/mocks/ReentrancyAttacker.sol#33) is not in mixedCase
+Parameter ReentrancyAttacker.setup(address,address)._nft (contracts/mocks/ReentrancyAttacker.sol#33) is not in mixedCase
+Variable ReentrancyAttacker.re_stakeId (contracts/mocks/ReentrancyAttacker.sol#28) is not in mixedCase
+Variable ReentrancyAttacker.re_tokenRateUSDT (contracts/mocks/ReentrancyAttacker.sol#29) is not in mixedCase
+Variable ReentrancyAttacker.re_exp (contracts/mocks/ReentrancyAttacker.sol#30) is not in mixedCase
+Variable ReentrancyAttacker.re_sig (contracts/mocks/ReentrancyAttacker.sol#31) is not in mixedCase
+Parameter CERTIFICATE.recoverSigner(bytes32,bytes)._hashedMessage (contracts/nft-minting-smart-contract.sol#353) is not in mixedCase
+Parameter CERTIFICATE.addOrRemoveAdmin(address,bool)._admin (contracts/nft-minting-smart-contract.sol#363) is not in mixedCase
+Parameter CERTIFICATE.addOrRemoveAdmin(address,bool)._true (contracts/nft-minting-smart-contract.sol#363) is not in mixedCase
+Parameter CERTIFICATE.mint(uint256,address,uint256,bytes)._address (contracts/nft-minting-smart-contract.sol#458) is not in mixedCase
+Parameter CERTIFICATE.mint(uint256,address,uint256,bytes)._exp (contracts/nft-minting-smart-contract.sol#459) is not in mixedCase
+Parameter CERTIFICATE.mint(uint256,address,uint256,bytes)._sig (contracts/nft-minting-smart-contract.sol#460) is not in mixedCase
+Parameter REDEEM.setIsRedeemable(bool)._isRedeemable (contracts/nft-redeem-smart-contract.sol#62) is not in mixedCase
+Parameter REDEEM.addOrRemoveAdmin(address,bool)._admin (contracts/nft-redeem-smart-contract.sol#67) is not in mixedCase
+Parameter REDEEM.addOrRemoveAdmin(address,bool)._isAdmin (contracts/nft-redeem-smart-contract.sol#67) is not in mixedCase
+Parameter REDEEM.updateBlacklistedAddress(address,bool)._user (contracts/nft-redeem-smart-contract.sol#72) is not in mixedCase
+Parameter REDEEM.updateBlacklistedAddress(address,bool)._isBlacklisted (contracts/nft-redeem-smart-contract.sol#72) is not in mixedCase
+Parameter REDEEM.updateBlacklistedTokenId(uint256,bool)._isBlacklisted (contracts/nft-redeem-smart-contract.sol#77) is not in mixedCase
+Parameter REDEEM.updateNFEaddress(address)._address (contracts/nft-redeem-smart-contract.sol#82) is not in mixedCase
+Parameter REDEEM.updateDPMCaddress(address)._address (contracts/nft-redeem-smart-contract.sol#87) is not in mixedCase
+Parameter REDEEM.updatePayoutAddress(address)._address (contracts/nft-redeem-smart-contract.sol#92) is not in mixedCase
+Variable REDEEM.PAYOUT (contracts/nft-redeem-smart-contract.sol#21) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.addYears(uint256,uint256)._years (contracts/nft-staking-smart-contract.sol#613) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.addMonths(uint256,uint256)._months (contracts/nft-staking-smart-contract.sol#632) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.addDays(uint256,uint256)._days (contracts/nft-staking-smart-contract.sol#653) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.addHours(uint256,uint256)._hours (contracts/nft-staking-smart-contract.sol#661) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.addMinutes(uint256,uint256)._minutes (contracts/nft-staking-smart-contract.sol#669) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.addSeconds(uint256,uint256)._seconds (contracts/nft-staking-smart-contract.sol#677) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.subYears(uint256,uint256)._years (contracts/nft-staking-smart-contract.sol#685) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.subMonths(uint256,uint256)._months (contracts/nft-staking-smart-contract.sol#704) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.subDays(uint256,uint256)._days (contracts/nft-staking-smart-contract.sol#725) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.subHours(uint256,uint256)._hours (contracts/nft-staking-smart-contract.sol#733) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.subMinutes(uint256,uint256)._minutes (contracts/nft-staking-smart-contract.sol#741) is not in mixedCase
+Parameter BokkyPooBahsDateTimeLibrary.subSeconds(uint256,uint256)._seconds (contracts/nft-staking-smart-contract.sol#749) is not in mixedCase
+Parameter STAKE.recoverSigner(bytes32,bytes)._hashedMessage (contracts/nft-staking-smart-contract.sol#1003) is not in mixedCase
+Parameter STAKE.addOrRemoveAdmin(address,bool)._admin (contracts/nft-staking-smart-contract.sol#1017) is not in mixedCase
+Parameter STAKE.addOrRemoveAdmin(address,bool)._true (contracts/nft-staking-smart-contract.sol#1017) is not in mixedCase
+Parameter STAKE.updateBlacklistedAddress(address,bool)._user (contracts/nft-staking-smart-contract.sol#1031) is not in mixedCase
+Parameter STAKE.updateBlacklistedAddress(address,bool)._isBlacklisted (contracts/nft-staking-smart-contract.sol#1032) is not in mixedCase
+Parameter STAKE.updateBlacklistedTokenId(uint256,bool)._isBlacklisted (contracts/nft-staking-smart-contract.sol#1040) is not in mixedCase
+Parameter STAKE.updateForceUnstakeInDays(uint16)._days (contracts/nft-staking-smart-contract.sol#1046) is not in mixedCase
+Parameter STAKE.updateMinStake(uint256)._mintStake (contracts/nft-staking-smart-contract.sol#1051) is not in mixedCase
+Parameter STAKE.updateRestrictedReStaking(uint16)._restrictN (contracts/nft-staking-smart-contract.sol#1056) is not in mixedCase
+Parameter STAKE.updateSignerAddress(address)._signerAddress (contracts/nft-staking-smart-contract.sol#1061) is not in mixedCase
+Parameter STAKE.updateNFEaddress(address)._nfeAddress (contracts/nft-staking-smart-contract.sol#1066) is not in mixedCase
+Parameter STAKE.updateDPMCaddress(address)._dpmcAddress (contracts/nft-staking-smart-contract.sol#1071) is not in mixedCase
+Parameter STAKE.updateRewardAddress(address)._rewardAddress (contracts/nft-staking-smart-contract.sol#1076) is not in mixedCase
+Parameter STAKE.updatePercentageUsed(bool)._true (contracts/nft-staking-smart-contract.sol#1081) is not in mixedCase
+Parameter STAKE.updateAprPercentage(uint8,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1087) is not in mixedCase
+Parameter STAKE.updateAprPercentage(uint8,uint256)._aprValue (contracts/nft-staking-smart-contract.sol#1088) is not in mixedCase
+Parameter STAKE.updatePenaltyPercentage(uint8,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1101) is not in mixedCase
+Parameter STAKE.updatePenaltyPercentage(uint8,uint256)._penaltyValue (contracts/nft-staking-smart-contract.sol#1102) is not in mixedCase
+Parameter STAKE.calculatePenaltyValue(uint256,uint8,uint256)._aprValue (contracts/nft-staking-smart-contract.sol#1121) is not in mixedCase
+Parameter STAKE.calculatePenaltyValue(uint256,uint8,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1122) is not in mixedCase
+Parameter STAKE.calculatePenaltyValue(uint256,uint8,uint256)._penaltyPercentage (contracts/nft-staking-smart-contract.sol#1123) is not in mixedCase
+Parameter STAKE.calculatePenaltyBRV(uint256,uint256)._usdtValue (contracts/nft-staking-smart-contract.sol#1131) is not in mixedCase
+Parameter STAKE.calculatePenaltyBRV(uint256,uint256)._penaltyPercentage (contracts/nft-staking-smart-contract.sol#1132) is not in mixedCase
+Function STAKE.GPV(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1138-1143) is not in mixedCase
+Parameter STAKE.GPV(uint256,uint256)._tokenRateUSDT (contracts/nft-staking-smart-contract.sol#1139) is not in mixedCase
+Parameter STAKE.GPV(uint256,uint256)._tokenValue (contracts/nft-staking-smart-contract.sol#1140) is not in mixedCase
+Function STAKE.AMP(uint256) (contracts/nft-staking-smart-contract.sol#1145-1148) is not in mixedCase
+Parameter STAKE.AMP(uint256)._aprPercentage (contracts/nft-staking-smart-contract.sol#1145) is not in mixedCase
+Function STAKE.SPP(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1150-1156) is not in mixedCase
+Parameter STAKE.SPP(uint256,uint256)._amp (contracts/nft-staking-smart-contract.sol#1151) is not in mixedCase
+Parameter STAKE.SPP(uint256,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1152) is not in mixedCase
+Function STAKE.BRV(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1158-1162) is not in mixedCase
+Parameter STAKE.BRV(uint256,uint256)._gpv (contracts/nft-staking-smart-contract.sol#1158) is not in mixedCase
+Parameter STAKE.BRV(uint256,uint256)._spp (contracts/nft-staking-smart-contract.sol#1158) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._apr (contracts/nft-staking-smart-contract.sol#1165) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._tokenRateUSDT (contracts/nft-staking-smart-contract.sol#1166) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._tokenValue (contracts/nft-staking-smart-contract.sol#1167) is not in mixedCase
+Parameter STAKE.calculateBasedRewardValue(uint256,uint256,uint256,uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1168) is not in mixedCase
+Parameter STAKE.periodInUnixTimestamp(uint256)._stakePeriod (contracts/nft-staking-smart-contract.sol#1215) is not in mixedCase
+Parameter STAKE.forcedUnstakePeriodInUnixTimestamp(uint256)._stakeEndedAt (contracts/nft-staking-smart-contract.sol#1227) is not in mixedCase
+Variable STAKE.MIN_TOKEN_TO_STAKE (contracts/nft-staking-smart-contract.sol#852) is not in mixedCase
+Variable STAKE.PPM (contracts/nft-staking-smart-contract.sol#853) is not in mixedCase
+Variable STAKE.FORCED_UNSTAKE_IN_DAYS (contracts/nft-staking-smart-contract.sol#854) is not in mixedCase
+Variable STAKE.RESTRICTED_RE_STAKING (contracts/nft-staking-smart-contract.sol#855) is not in mixedCase
+Variable STAKE.SIGNER (contracts/nft-staking-smart-contract.sol#857) is not in mixedCase
+Variable STAKE.REWARD (contracts/nft-staking-smart-contract.sol#860) is not in mixedCase
+Variable STAKE.DEFAULT_PERCENTAGE_USED (contracts/nft-staking-smart-contract.sol#861) is not in mixedCase
+Variable STAKE.APR (contracts/nft-staking-smart-contract.sol#866) is not in mixedCase
+Variable STAKE.PENALTY (contracts/nft-staking-smart-contract.sol#867) is not in mixedCase
+Variable STAKE.STAKING_REWARD (contracts/nft-staking-smart-contract.sol#869) is not in mixedCase
+Variable STAKE.ESTIMATED_BRV (contracts/nft-staking-smart-contract.sol#875) is not in mixedCase
+Event StableStaking.totalMaxStakingPoolUpdated(uint256) (contracts/stable-staking-smart-contract.sol#655) is not in CapWords
+Event StableStaking.stakingPoolAndRewardUpdated(address) (contracts/stable-staking-smart-contract.sol#656) is not in CapWords
+Event StableStaking.lockedTokenUpdated(address) (contracts/stable-staking-smart-contract.sol#657) is not in CapWords
+Parameter StableStaking.addOrRemoveAdmin(address,bool)._admin (contracts/stable-staking-smart-contract.sol#750) is not in mixedCase
+Parameter StableStaking.addOrRemoveAdmin(address,bool)._true (contracts/stable-staking-smart-contract.sol#750) is not in mixedCase
+Parameter StableStaking.updateLockMode(bool)._status (contracts/stable-staking-smart-contract.sol#765) is not in mixedCase
+Parameter StableStaking.recoverSigner(bytes32,bytes)._hashedMessage (contracts/stable-staking-smart-contract.sol#793) is not in mixedCase
+Parameter StableStaking.updateStakingPoolAndReward(address)._newAddress (contracts/stable-staking-smart-contract.sol#818) is not in mixedCase
+Parameter StableStaking.updateLockingPool(address)._newAddress (contracts/stable-staking-smart-contract.sol#825) is not in mixedCase
+Parameter StableStaking.updateBondingPeriod(uint256)._newBondingPeriod (contracts/stable-staking-smart-contract.sol#831) is not in mixedCase
+Parameter StableStaking.updateWithdrawalPeriod(uint256)._newWithdrawalPeriod (contracts/stable-staking-smart-contract.sol#839) is not in mixedCase
+Parameter StableStaking.updatePersonalMinStake(uint256)._newMinStake (contracts/stable-staking-smart-contract.sol#847) is not in mixedCase
+Parameter StableStaking.updateInstitutionalMinStake(uint256)._newMinStake (contracts/stable-staking-smart-contract.sol#855) is not in mixedCase
+Parameter StableStaking.updateTotalMaxStakingPool(uint256)._newMax (contracts/stable-staking-smart-contract.sol#863) is not in mixedCase
+Parameter StableStaking.updateMaxStakeForTier(StableStaking.Tier,uint256)._tier (contracts/stable-staking-smart-contract.sol#871) is not in mixedCase
+Parameter StableStaking.updateMaxStakeForTier(StableStaking.Tier,uint256)._newMaxStake (contracts/stable-staking-smart-contract.sol#872) is not in mixedCase
+Parameter StableStaking.updateAdditionalInterestForTier(StableStaking.Tier,uint256)._tier (contracts/stable-staking-smart-contract.sol#880) is not in mixedCase
+Parameter StableStaking.updateAdditionalInterestForTier(StableStaking.Tier,uint256)._newInterestPPM (contracts/stable-staking-smart-contract.sol#881) is not in mixedCase
+Parameter StableStaking.updateStakingToken(address)._newAddress (contracts/stable-staking-smart-contract.sol#891) is not in mixedCase
+Parameter StableStaking.updateLockingToken(address)._newAddress (contracts/stable-staking-smart-contract.sol#900) is not in mixedCase
+Parameter StableStaking.getUserTier(uint256)._lockedAmount (contracts/stable-staking-smart-contract.sol#910) is not in mixedCase
+Parameter StableStaking.addStakingPeriod(uint256,uint256,uint256)._period (contracts/stable-staking-smart-contract.sol#1033) is not in mixedCase
+Parameter StableStaking.addStakingPeriod(uint256,uint256,uint256)._interestRate (contracts/stable-staking-smart-contract.sol#1034) is not in mixedCase
+Parameter StableStaking.addStakingPeriod(uint256,uint256,uint256)._limiter (contracts/stable-staking-smart-contract.sol#1035) is not in mixedCase
+Parameter StableStaking.updateStakingPeriod(uint256,uint256,uint256)._period (contracts/stable-staking-smart-contract.sol#1054) is not in mixedCase
+Parameter StableStaking.updateStakingPeriod(uint256,uint256,uint256)._interestRate (contracts/stable-staking-smart-contract.sol#1055) is not in mixedCase
+Parameter StableStaking.updateStakingPeriod(uint256,uint256,uint256)._limiter (contracts/stable-staking-smart-contract.sol#1056) is not in mixedCase
+Parameter StableStaking.disableStakingPeriod(uint256)._period (contracts/stable-staking-smart-contract.sol#1074) is not in mixedCase
+Parameter StableStaking.enableStakingPeriod(uint256,uint256)._period (contracts/stable-staking-smart-contract.sol#1090) is not in mixedCase
+Parameter StableStaking.enableStakingPeriod(uint256,uint256)._interestRate (contracts/stable-staking-smart-contract.sol#1091) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._userType (contracts/stable-staking-smart-contract.sol#1162) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._period (contracts/stable-staking-smart-contract.sol#1163) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._stakedAmount (contracts/stable-staking-smart-contract.sol#1164) is not in mixedCase
+Parameter StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._isTokenLocked (contracts/stable-staking-smart-contract.sol#1165) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._userType (contracts/stable-staking-smart-contract.sol#1303) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._period (contracts/stable-staking-smart-contract.sol#1304) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._stakedAmount (contracts/stable-staking-smart-contract.sol#1305) is not in mixedCase
+Parameter StableStaking.stake(StableStaking.UserType,uint256,uint256,bool,uint256,bytes)._isTokenLocked (contracts/stable-staking-smart-contract.sol#1306) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._userType (contracts/stable-staking-smart-contract.sol#1349) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._period (contracts/stable-staking-smart-contract.sol#1350) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._stakedAmount (contracts/stable-staking-smart-contract.sol#1351) is not in mixedCase
+Parameter StableStaking.validateStakeConditions(StableStaking.UserType,uint256,uint256,bool)._isTokenLocked (contracts/stable-staking-smart-contract.sol#1352) is not in mixedCase
+Parameter StableStaking.handleTransfers(address,uint256,uint256)._stakedAmount (contracts/stable-staking-smart-contract.sol#1406) is not in mixedCase
+Parameter StableStaking.handleTransfers(address,uint256,uint256)._lockedAmount (contracts/stable-staking-smart-contract.sol#1407) is not in mixedCase
+Parameter StableStaking.forceStop(uint256,address)._stakeId (contracts/stable-staking-smart-contract.sol#1420) is not in mixedCase
+Parameter StableStaking.forceStop(uint256,address)._staker (contracts/stable-staking-smart-contract.sol#1421) is not in mixedCase
+Parameter StableStaking.requestWithdrawPrincipal(uint256,uint256,bytes)._stakeId (contracts/stable-staking-smart-contract.sol#1461) is not in mixedCase
+Parameter StableStaking.withdrawPrincipal(uint256,uint256,bytes)._stakeId (contracts/stable-staking-smart-contract.sol#1525) is not in mixedCase
+Parameter StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes)._stakeId (contracts/stable-staking-smart-contract.sol#1579) is not in mixedCase
+Parameter StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes)._months (contracts/stable-staking-smart-contract.sol#1580) is not in mixedCase
+Parameter StableStaking.withdrawInterest(uint256,uint256[],uint256[],uint256,bytes)._interests (contracts/stable-staking-smart-contract.sol#1581) is not in mixedCase
+Parameter StableStaking.getUserStakeInfo(address,StableStaking.UserType)._user (contracts/stable-staking-smart-contract.sol#1663) is not in mixedCase
+Variable StableStaking.MIN_VIP_THRESHOLD (contracts/stable-staking-smart-contract.sol#614) is not in mixedCase
+Variable StableStaking.MIN_GOLD_THRESHOLD (contracts/stable-staking-smart-contract.sol#615) is not in mixedCase
+Variable StableStaking.MIN_SILVER_THRESHOLD (contracts/stable-staking-smart-contract.sol#616) is not in mixedCase
+Variable StableStaking.MIN_BRONZE_THRESHOLD (contracts/stable-staking-smart-contract.sol#617) is not in mixedCase
+Variable StableStaking.MIN_NOTIER_THRESHOLD (contracts/stable-staking-smart-contract.sol#618) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Math.log2(uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#612-651) uses literals with too many digits:
+	- r = r | byte(uint256,uint256)(x >> r,0x0000010102020202030303030303030300000000000000000000000000000000) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#649)
+DPToken.constructor(address,address,uint24) (contracts/dp-token-smart-contract.sol#810-823) uses literals with too many digits:
+	- require(bool,string)(_buyTax <= 1000000,Tax percentage must be 1000000 (100%) or less) (contracts/dp-token-smart-contract.sol#813)
+DPToken.constructor(address,address,uint24) (contracts/dp-token-smart-contract.sol#810-823) uses literals with too many digits:
+	- _mint(receiver,100000000 * 10 ** decimals()) (contracts/dp-token-smart-contract.sol#822)
+DPToken.updateBuyTaxPercentage(uint24) (contracts/dp-token-smart-contract.sol#886-895) uses literals with too many digits:
+	- require(bool,string)(newBuyTaxPercentage <= 1000000,Tax percentage must be 1000000 (100%) or less) (contracts/dp-token-smart-contract.sol#889-892)
+CERTIFICATE.constructor() (contracts/nft-minting-smart-contract.sol#318-326) uses literals with too many digits:
+	- minToMint = 100000000000000000000 (contracts/nft-minting-smart-contract.sol#322)
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+	- MIN_TOKEN_TO_STAKE = 100000000000000000000 (contracts/nft-staking-smart-contract.sol#940)
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+	- PPM = 1000000 (contracts/nft-staking-smart-contract.sol#941)
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+	- PENALTY[3] = 100000 (contracts/nft-staking-smart-contract.sol#953)
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+	- PENALTY[6] = 100000 (contracts/nft-staking-smart-contract.sol#954)
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+	- PENALTY[9] = 100000 (contracts/nft-staking-smart-contract.sol#955)
+STAKE.constructor() (contracts/nft-staking-smart-contract.sol#938-958) uses literals with too many digits:
+	- PENALTY[12] = 100000 (contracts/nft-staking-smart-contract.sol#956)
+STAKE.BRV(uint256,uint256) (contracts/nft-staking-smart-contract.sol#1158-1162) uses literals with too many digits:
+	- basedRewardValue = _gpv.mul(_spp).div(10000000) (contracts/nft-staking-smart-contract.sol#1160)
+StableStaking.calculateMonthlyStakingInterest(uint256,uint256) (contracts/stable-staking-smart-contract.sol#1019-1030) uses literals with too many digits:
+	- annualInterest = (stakedAmount * interestRate) / 1000000 (contracts/stable-staking-smart-contract.sol#1024)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+CERTIFICATE.DEAD (contracts/nft-minting-smart-contract.sol#253) is never used in CERTIFICATE (contracts/nft-minting-smart-contract.sol#237-768)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+Loop condition i < stakingPeriod.length (contracts/stable-staking-smart-contract.sol#1128) should use cached array length instead of referencing `length` member of the storage array.
+ Loop condition i < APR.length (contracts/nft-staking-smart-contract.sol#1199) should use cached array length instead of referencing `length` member of the storage array.
+ Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cache-array-length
+
+CERTIFICATE._name (contracts/nft-minting-smart-contract.sol#239) should be constant 
+CERTIFICATE._symbol (contracts/nft-minting-smart-contract.sol#240) should be constant 
+CERTIFICATE.description (contracts/nft-minting-smart-contract.sol#243) should be constant 
+CERTIFICATE.footer (contracts/nft-minting-smart-contract.sol#242) should be constant 
+CERTIFICATE.web (contracts/nft-minting-smart-contract.sol#241) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+CERTIFICATE.signer (contracts/nft-minting-smart-contract.sol#246) should be immutable 
+DPToken.receiver (contracts/dp-token-smart-contract.sol#771) should be immutable 
+STAKE.PPM (contracts/nft-staking-smart-contract.sol#853) should be immutable 
+StableStaking.signer (contracts/stable-staking-smart-contract.sol#622) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+. analyzed (63 contracts with 100 detectors), 376 result(s) found
+INFO:Slither:static-analysis/reports/All.json exists already, the overwrite is prevented

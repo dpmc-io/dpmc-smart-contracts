@@ -1,0 +1,56 @@
+GovernanceDAO.vote(uint256,uint256).calculatedWeight (contracts/governance-dao-smart-contract.sol#708) is a local variable never initialized
+GovernanceDAO.updateProposalStatus(uint256,GovernanceDAO.Status)._status (contracts/governance-dao-smart-contract.sol#781) shadows:
+GovernanceDAO.createSession() (contracts/governance-dao-smart-contract.sol#221-239) uses timestamp for comparisons
+GovernanceDAO.submitProposal(string,string,string[]) (contracts/governance-dao-smart-contract.sol#485-579) uses timestamp for comparisons
+GovernanceDAO.selectProposal(uint256,string,string,string[]) (contracts/governance-dao-smart-contract.sol#581-662) uses timestamp for comparisons
+GovernanceDAO.vote(uint256,uint256) (contracts/governance-dao-smart-contract.sol#678-749) uses timestamp for comparisons
+GovernanceDAO.cancelProposal(uint256) (contracts/governance-dao-smart-contract.sol#751-777) uses timestamp for comparisons
+GovernanceDAO.setVoteMethod(GovernanceDAO.VoteMethod) (contracts/governance-dao-smart-contract.sol#804-810) uses timestamp for comparisons
+GovernanceDAO.getFinalizedVotes(uint256) (contracts/governance-dao-smart-contract.sol#824-835) uses timestamp for comparisons
+GovernanceDAO.getActiveProposal() (contracts/governance-dao-smart-contract.sol#861-870) uses timestamp for comparisons
+Parameter GovernanceDAO.addOrRemoveAdmin(address,bool)._admin (contracts/governance-dao-smart-contract.sol#214) is not in mixedCase
+Parameter GovernanceDAO.addOrRemoveAdmin(address,bool)._isAdminStatus (contracts/governance-dao-smart-contract.sol#215) is not in mixedCase
+Parameter GovernanceDAO.updateNoRulesVoteTier(GovernanceDAO.Tier)._newVoteTier (contracts/governance-dao-smart-contract.sol#242) is not in mixedCase
+Parameter GovernanceDAO.updateNoRulesProposalTier(GovernanceDAO.Tier)._newProposalTier (contracts/governance-dao-smart-contract.sol#251) is not in mixedCase
+Parameter GovernanceDAO.updateRulesVoteConfig(bool)._newValue (contracts/governance-dao-smart-contract.sol#259) is not in mixedCase
+Parameter GovernanceDAO.updateRulesProposalConfig(bool)._newValue (contracts/governance-dao-smart-contract.sol#268) is not in mixedCase
+Parameter GovernanceDAO.withRulesVote(address)._user (contracts/governance-dao-smart-contract.sol#278) is not in mixedCase
+Parameter GovernanceDAO.withRulesProposal(address)._user (contracts/governance-dao-smart-contract.sol#293) is not in mixedCase
+Parameter GovernanceDAO.noRulesPermission(address,GovernanceDAO.Tier)._user (contracts/governance-dao-smart-contract.sol#308) is not in mixedCase
+Parameter GovernanceDAO.checkEligibility(address,bool)._user (contracts/governance-dao-smart-contract.sol#327) is not in mixedCase
+Parameter GovernanceDAO.checkEligibility(address,bool)._isForProposal (contracts/governance-dao-smart-contract.sol#328) is not in mixedCase
+Parameter GovernanceDAO.updateTokenLock(address)._newTokenLock (contracts/governance-dao-smart-contract.sol#348) is not in mixedCase
+Parameter GovernanceDAO.updateUsdtStake(address)._newUsdtStake (contracts/governance-dao-smart-contract.sol#356) is not in mixedCase
+Parameter GovernanceDAO.updateUsdcStake(address)._newUsdcStake (contracts/governance-dao-smart-contract.sol#364) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._vip (contracts/governance-dao-smart-contract.sol#372) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._gold (contracts/governance-dao-smart-contract.sol#373) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._silver (contracts/governance-dao-smart-contract.sol#374) is not in mixedCase
+Parameter GovernanceDAO.updateTierThresholds(uint256,uint256,uint256,uint256)._bronze (contracts/governance-dao-smart-contract.sol#375) is not in mixedCase
+Parameter GovernanceDAO.setMaxPercentage(uint256)._percent (contracts/governance-dao-smart-contract.sol#429) is not in mixedCase
+Parameter GovernanceDAO.updateMaxProposalsPerSession(uint256)._newLimit (contracts/governance-dao-smart-contract.sol#439) is not in mixedCase
+Parameter GovernanceDAO.submitProposal(string,string,string[])._title (contracts/governance-dao-smart-contract.sol#486) is not in mixedCase
+Parameter GovernanceDAO.submitProposal(string,string,string[])._description (contracts/governance-dao-smart-contract.sol#487) is not in mixedCase
+Parameter GovernanceDAO.submitProposal(string,string,string[])._choices (contracts/governance-dao-smart-contract.sol#488) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._proposalId (contracts/governance-dao-smart-contract.sol#582) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._newTitle (contracts/governance-dao-smart-contract.sol#583) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._newDescription (contracts/governance-dao-smart-contract.sol#584) is not in mixedCase
+Parameter GovernanceDAO.selectProposal(uint256,string,string,string[])._newChoices (contracts/governance-dao-smart-contract.sol#585) is not in mixedCase
+Parameter GovernanceDAO.vote(uint256,uint256)._proposalId (contracts/governance-dao-smart-contract.sol#679) is not in mixedCase
+Parameter GovernanceDAO.vote(uint256,uint256)._choiceIndex (contracts/governance-dao-smart-contract.sol#680) is not in mixedCase
+Parameter GovernanceDAO.cancelProposal(uint256)._proposalId (contracts/governance-dao-smart-contract.sol#751) is not in mixedCase
+Parameter GovernanceDAO.updateProposalStatus(uint256,GovernanceDAO.Status)._proposalId (contracts/governance-dao-smart-contract.sol#780) is not in mixedCase
+Parameter GovernanceDAO.updateProposalStatus(uint256,GovernanceDAO.Status)._status (contracts/governance-dao-smart-contract.sol#781) is not in mixedCase
+Parameter GovernanceDAO.updateVotingDuration(uint256)._days (contracts/governance-dao-smart-contract.sol#799) is not in mixedCase
+Parameter GovernanceDAO.setVoteMethod(GovernanceDAO.VoteMethod)._method (contracts/governance-dao-smart-contract.sol#804) is not in mixedCase
+Parameter GovernanceDAO.pauseDAO(bool)._pause (contracts/governance-dao-smart-contract.sol#812) is not in mixedCase
+Parameter GovernanceDAO.getProposalVote(uint256,uint256)._proposalId (contracts/governance-dao-smart-contract.sol#818) is not in mixedCase
+Parameter GovernanceDAO.getProposalVote(uint256,uint256)._choiceIndex (contracts/governance-dao-smart-contract.sol#819) is not in mixedCase
+Parameter GovernanceDAO.getFinalizedVotes(uint256)._proposalId (contracts/governance-dao-smart-contract.sol#825) is not in mixedCase
+Parameter GovernanceDAO.getWinningChoice(uint256)._proposalId (contracts/governance-dao-smart-contract.sol#838) is not in mixedCase
+Variable GovernanceDAO.MIN_VIP_THRESHOLD (contracts/governance-dao-smart-contract.sol#83) is not in mixedCase
+Variable GovernanceDAO.MIN_GOLD_THRESHOLD (contracts/governance-dao-smart-contract.sol#84) is not in mixedCase
+Variable GovernanceDAO.MIN_SILVER_THRESHOLD (contracts/governance-dao-smart-contract.sol#85) is not in mixedCase
+Variable GovernanceDAO.MIN_BRONZE_THRESHOLD (contracts/governance-dao-smart-contract.sol#86) is not in mixedCase
+Variable GovernanceDAO.MAX_CAPPED_PERCENTAGE (contracts/governance-dao-smart-contract.sol#98) is not in mixedCase
+Variable GovernanceDAO.MAX_PROPOSALS_PER_SESSION (contracts/governance-dao-smart-contract.sol#99) is not in mixedCase
+Variable GovernanceDAO.VOTING_DURATION (contracts/governance-dao-smart-contract.sol#101) is not in mixedCase

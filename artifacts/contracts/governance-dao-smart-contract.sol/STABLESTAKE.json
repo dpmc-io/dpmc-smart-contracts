@@ -1,0 +1,52 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "STABLESTAKE",
+  "sourceName": "contracts/governance-dao-smart-contract.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "users",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "enum STABLESTAKE.UserType",
+              "name": "userType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalStaked",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalLocked",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stakeCount",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct STABLESTAKE.UserInfo",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

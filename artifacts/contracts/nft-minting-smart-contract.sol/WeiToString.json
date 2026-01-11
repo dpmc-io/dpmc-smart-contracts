@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "WeiToString",
+  "sourceName": "contracts/nft-minting-smart-contract.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea264697066735822122074b81445614c7f2b74736ee579c243663ed9977257afcfcd2d9c358dbdc6d58964736f6c63430008140033",
+  "deployedBytecode": "0x600080fdfea264697066735822122074b81445614c7f2b74736ee579c243663ed9977257afcfcd2d9c358dbdc6d58964736f6c63430008140033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
