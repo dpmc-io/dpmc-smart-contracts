@@ -28,8 +28,8 @@ Reentrancy in StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/
 	StableStaking.users (contracts/stable-staking-smart-contract.sol#697) can be used in cross function reentrancies:
 	- StableStaking.getUserStakeInfo(address,StableStaking.UserType) (contracts/stable-staking-smart-contract.sol#1662-1700)
 	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
-StableStaking.getAllTiers().tiersInfo (contracts/stable-staking-smart-contract.sol#956) is a local variable never initialized
 StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes).params (contracts/stable-staking-smart-contract.sol#1176) is a local variable never initialized
+StableStaking.getAllTiers().tiersInfo (contracts/stable-staking-smart-contract.sol#956) is a local variable never initialized
 StableStaking.updateLockMode(bool)._status (contracts/stable-staking-smart-contract.sol#765) shadows:
 StableStaking.constructor(address,address,address,address,address)._lockingPool (contracts/stable-staking-smart-contract.sol#706) lacks a zero-check on :
 Reentrancy in StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes) (contracts/stable-staking-smart-contract.sol#1161-1237):

@@ -192,9 +192,9 @@ Reentrancy in StableStaking.withdrawPrincipal(uint256,uint256,bytes) (contracts/
 	- StableStaking.users (contracts/stable-staking-smart-contract.sol#697)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
 
-StableStaking.getAllTiers().tiersInfo (contracts/stable-staking-smart-contract.sol#956) is a local variable never initialized
-WeiToString.numToFixedLengthStr(uint256,uint256).byteString (contracts/nft-minting-smart-contract.sol#191) is a local variable never initialized
 StableStaking.executeStaking(StableStaking.UserType,uint256,uint256,bool,uint256,bytes).params (contracts/stable-staking-smart-contract.sol#1176) is a local variable never initialized
+WeiToString.numToFixedLengthStr(uint256,uint256).byteString (contracts/nft-minting-smart-contract.sol#191) is a local variable never initialized
+StableStaking.getAllTiers().tiersInfo (contracts/stable-staking-smart-contract.sol#956) is a local variable never initialized
 GovernanceDAO.vote(uint256,uint256).calculatedWeight (contracts/governance-dao-smart-contract.sol#708) is a local variable never initialized
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
 
@@ -887,8 +887,8 @@ Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-man
 CERTIFICATE.DEAD (contracts/nft-minting-smart-contract.sol#253) is never used in CERTIFICATE (contracts/nft-minting-smart-contract.sol#237-768)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
 
-Loop condition i < stakingPeriod.length (contracts/stable-staking-smart-contract.sol#1128) should use cached array length instead of referencing `length` member of the storage array.
- Loop condition i < APR.length (contracts/nft-staking-smart-contract.sol#1199) should use cached array length instead of referencing `length` member of the storage array.
+Loop condition i < APR.length (contracts/nft-staking-smart-contract.sol#1199) should use cached array length instead of referencing `length` member of the storage array.
+ Loop condition i < stakingPeriod.length (contracts/stable-staking-smart-contract.sol#1128) should use cached array length instead of referencing `length` member of the storage array.
  Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cache-array-length
 
 CERTIFICATE._name (contracts/nft-minting-smart-contract.sol#239) should be constant 
